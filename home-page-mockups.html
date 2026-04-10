@@ -31,14 +31,14 @@
       <img class="header-logo" src="assets/artisti-brand-logo.png" width="120" height="48" alt="Artisti 7607" />
       <div class="header-copy">
         <h1>Home page — initial directions</h1>
-        <p>Three static compositions for a future <a href="https://artisti7607.com/">artisti7607.com</a> home. Same header contract as <a href="headers-mockups.html">headers mockups</a>; below explores hero, density, and story hierarchy only.</p>
+        <p>Five static compositions for a future <a href="https://artisti7607.com/">artisti7607.com</a> home. Ideas 1–3 use the compact navy header bar; ideas 4–5 use the spacious utility-button header (see <a href="headers-mockups.html#mock-s4">Headers mockups · alternates</a>). Body layouts vary below the header.</p>
       </div>
     </div>
   </header>
 
   <main id="main">
     <p class="home-intro">
-      Each block is a self-contained wireframe: square corners, brand navy / blue / neutrals. Copy is placeholder. Refine or replace after content strategy; add responsive breakpoints when you lock a direction.
+      Each block is a self-contained wireframe: square corners, brand navy / blue / neutrals. Copy is placeholder. Ideas <strong>4–5</strong> pair a light, padded header (FAQ / Ricerca as outline actions, <strong>Accedi</strong> as primary CTA) with a calmer body—same information architecture as the contract header, different density.
     </p>
 
     <!-- Shared mini-header snippet inside each frame -->
@@ -229,6 +229,131 @@
             <div class="home-tile__t">Archivio mandanti aggiornato</div>
           </li>
         </ul>
+        <div class="home-frame-foot">
+          <span>© 2026 Artisti 7607</span>
+          <span>Contattaci · Cookie · Privacy · Iscriviti</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · Air-style spacious header -->
+    <section class="home-idea" aria-labelledby="home-4">
+      <h2 id="home-4">4 · Air header + calm hero + service cards</h2>
+      <p class="hint">White header row: wide primary links, FAQ and Ricerca database as outline “chip” actions, language label, <strong>Accedi</strong> as solid CTA. Body: soft neutral hero with secondary CTAs, then three bordered service cards (matches the “spacious CTA” alternate on headers mockups).</p>
+      <div class="home-frame home-frame--air" role="region" aria-label="Home concept 4, air header">
+        <div class="home-air-top">
+          <a class="home-air-logo" href="#">
+            <img src="assets/artisti-brand-logo.png" alt="Artisti 7607" />
+            <span class="visually-hidden">Home</span>
+          </a>
+          <nav class="home-air-primary" aria-label="Primary">
+            <a href="#">Home</a>
+            <a href="#">News</a>
+            <a href="#">Formazione</a>
+            <a href="#">Collecting</a>
+            <a href="#">Servizi</a>
+          </nav>
+          <div class="home-air-utils" aria-label="Utilities">
+            <a class="home-chip-btn" href="#">FAQ</a>
+            <a class="home-chip-btn" href="#">Ricerca database</a>
+            <span class="home-air-lang">ENG</span>
+            <a class="home-btn home-btn--primary" href="#">Accedi</a>
+          </div>
+        </div>
+        <div class="home-air-hero">
+          <div class="home-air-hero__inner">
+            <p class="home-air-eyebrow">Benvenuto</p>
+            <h3>Strumenti e tutela per chi crea</h3>
+            <p class="home-air-dek">Spacious hero: one line of context, headline, short paragraph—room for photography or illustration above the fold later without crowding the header.</p>
+            <div class="home-cta-row">
+              <a class="home-btn home-btn--primary" href="#">Area riservata</a>
+              <a class="home-btn home-btn--outline" href="#">Scopri i servizi</a>
+            </div>
+          </div>
+        </div>
+        <ul class="home-air-cards">
+          <li class="home-air-cards__item">
+            <span class="home-air-cards__label">News &amp; media</span>
+            <strong>Comunicati e accordi</strong>
+            <span class="home-air-cards__meta">Leggi gli aggiornamenti</span>
+            <a class="home-chip-btn home-chip-btn--inline" href="#">Vai alle news</a>
+          </li>
+          <li class="home-air-cards__item">
+            <span class="home-air-cards__label">Formazione</span>
+            <strong>Corsi e webinar</strong>
+            <span class="home-air-cards__meta">Calendario e iscrizioni</span>
+            <a class="home-chip-btn home-chip-btn--inline" href="#">Programma</a>
+          </li>
+          <li class="home-air-cards__item">
+            <span class="home-air-cards__label">Collecting</span>
+            <strong>Mandanti e diritti</strong>
+            <span class="home-air-cards__meta">FAQ e documentazione</span>
+            <a class="home-chip-btn home-chip-btn--inline" href="#">Approfondisci</a>
+          </li>
+        </ul>
+        <div class="home-frame-foot">
+          <span>© 2026 Artisti 7607</span>
+          <span>Contattaci · Cookie · Privacy · <a class="home-foot-cta" href="#">Iscriviti</a></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · Dock-style two-tier spacious header -->
+    <section class="home-idea" aria-labelledby="home-5">
+      <h2 id="home-5">5 · Dock header + spotlight band + two-column digest</h2>
+      <p class="hint">Slim dark utility strip (FAQ, Ricerca, ENG), then a tall white bar: logo, generous primary nav, and a right-hand <strong>CTA cluster</strong> (Iscriviti outline + Accedi solid). Below: a tinted spotlight row with headline + button, then two columns of teaser blocks—good when marketing wants a visible “join” path without hiding search.</p>
+      <div class="home-frame home-frame--dock" role="region" aria-label="Home concept 5, dock header">
+        <div class="home-dock-strip">
+          <a href="#">FAQ</a>
+          <span class="home-dock-sep" aria-hidden="true">·</span>
+          <a href="#">Ricerca database</a>
+          <span class="home-dock-sep" aria-hidden="true">·</span>
+          <a href="#">ENG</a>
+        </div>
+        <div class="home-dock-main">
+          <a class="home-dock-logo" href="#">
+            <img src="assets/artisti-brand-logo.png" alt="Artisti 7607" />
+            <span class="visually-hidden">Home</span>
+          </a>
+          <nav class="home-dock-primary" aria-label="Primary">
+            <a href="#">Home</a>
+            <a href="#">News</a>
+            <a href="#">Formazione</a>
+            <a href="#">Collecting</a>
+            <a href="#">Servizi</a>
+          </nav>
+          <div class="home-dock-ctas" aria-label="Account">
+            <a class="home-chip-btn" href="#">Iscriviti</a>
+            <a class="home-btn home-btn--primary" href="#">Accedi</a>
+          </div>
+        </div>
+        <div class="home-dock-spotlight">
+          <div class="home-dock-spotlight__text">
+            <h3>Seconda ripartizione 2025 — documentazione online</h3>
+            <p>Spotlight band: one campaign message and a single primary action; optional secondary link as text.</p>
+          </div>
+          <a class="home-btn home-btn--solid-navy" href="#">Vai all’area documenti</a>
+        </div>
+        <div class="home-dock-digest">
+          <article class="home-dock-digest__col">
+            <h4 class="home-dock-digest__h">In breve</h4>
+            <ul class="home-dock-list">
+              <li><a href="#">Sportello previdenziale · nuovi orari</a></li>
+              <li><a href="#">Modulo contributi aggiornato</a></li>
+              <li><a href="#">Webinar collecting · 15 aprile</a></li>
+            </ul>
+            <a class="home-chip-btn home-chip-btn--inline" href="#">Tutte le news</a>
+          </article>
+          <article class="home-dock-digest__col">
+            <h4 class="home-dock-digest__h">Per i soci</h4>
+            <ul class="home-dock-list">
+              <li><a href="#">Scadenza caricamento documenti</a></li>
+              <li><a href="#">Guida all’area riservata</a></li>
+              <li><a href="#">Contatta lo sportello</a></li>
+            </ul>
+            <a class="home-chip-btn home-chip-btn--inline" href="#">Accedi all’area</a>
+          </article>
+        </div>
         <div class="home-frame-foot">
           <span>© 2026 Artisti 7607</span>
           <span>Contattaci · Cookie · Privacy · Iscriviti</span>

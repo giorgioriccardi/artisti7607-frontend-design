@@ -6,7 +6,7 @@ Public **design microsite** (GitHub Pages): [giorgioriccardi.github.io/artisti76
 |------|------|
 | Brand / palette | [`index.html`](index.html) |
 | Headers mockups (6 scenarios) | [`headers-mockups.html`](headers-mockups.html) |
-| Home page mockups (3 ideas) | [`home-page-mockups.html`](home-page-mockups.html) |
+| Home page mockups (5 ideas) | [`home-page-mockups.html`](home-page-mockups.html) |
 | Rebuild / IA notes | [`docs/rebuild-notes.html`](docs/rebuild-notes.html) |
 
 **Static assets:** `css/core/site.css` (shared chrome), `css/pages/palette.css`, `headers-mockups.css`, `home-mockups.css` (per page), `js/pages/palette.js` (swatch page behavior).
