@@ -50,6 +50,11 @@
       alongside the static GitHub Pages design kit. It is not a full specification; it will grow as new static pages are added under this repo.
     </p>
 
+    <h2>Implementation stack</h2>
+    <p>
+      The WordPress front-end rebuild is based on <strong>Blocksy Pro</strong>: the Blocksy parent theme plus a Blocksy child theme (see the application repo for Composer packages, Companion Pro, and theme paths). Static mockups in this design repo inform layout and chrome; they are not drop-in Blocksy templates, but they should stay compatible with Blocksy’s header/footer and global style capabilities.
+    </p>
+
     <h2>Problem statement</h2>
     <p>
       The live site mixes navigation patterns: different headers for contexts, extended menus for some user levels, and behavior that is hard to predict when moving between public pages, logged-in areas, and tools. That increases cognitive load and makes the brand feel fragmented.
@@ -71,6 +76,7 @@
 
     <h2>WordPress / implementation hints</h2>
     <ul>
+      <li><strong>Blocksy Pro</strong> — Prefer Blocksy’s header builder, footer builder, and global styles where they match the agreed chrome contract; extend in the child theme when mockups need markup or behavior Blocksy does not expose out of the box.</li>
       <li>Implement the chrome once in the <strong>child theme</strong> (header/footer partials), not per-page PHP branches that duplicate markup.</li>
       <li>Drive link sets from <strong>menus or options</strong> registered in WordPress, with validation so editors cannot exceed the agreed counts (or overflow is intentionally folded into the fifth primary or utility session).</li>
       <li>Keep <code>is_home</code>, <code>is_admin</code> (bar on front), and role checks to <strong>swap URLs and labels only</strong>, not to inject a second navigation system.</li>
