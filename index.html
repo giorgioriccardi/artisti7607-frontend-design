@@ -64,8 +64,22 @@
       padding: 1.25rem 1.5rem;
       transition: background 0.2s ease;
     }
-    header h1 { margin: 0 0 0.25rem; font-size: 1.25rem; }
-    header p { margin: 0; opacity: 0.9; font-size: 0.875rem; }
+    .header-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .header-logo {
+      height: 3rem;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+      object-fit: contain;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.18));
+    }
+    .header-copy h1 { margin: 0 0 0.25rem; font-size: 1.25rem; }
+    .header-copy p { margin: 0; opacity: 0.92; font-size: 0.875rem; }
 
     main { max-width: 56rem; margin: 0 auto; padding: 1.5rem; }
 
@@ -92,7 +106,7 @@
 
     .swatch-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 0.75rem;
     }
     .swatch {
@@ -100,9 +114,34 @@
       overflow: hidden;
       border: 1px solid var(--color-neutral-200);
     }
-    .swatch-color { height: 4rem; }
+    .swatch-bar {
+      display: flex;
+      height: 4.5rem;
+      min-height: 4.5rem;
+    }
+    .swatch-bar .swatch-color {
+      flex: 1;
+      min-width: 0;
+      height: 100%;
+    }
+    .swatch > .swatch-color {
+      height: 4.5rem;
+    }
+    .swatch-ref {
+      width: 5.25rem;
+      flex-shrink: 0;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-left: 1px solid var(--color-neutral-200);
+      display: block;
+      background: var(--color-neutral-200);
+    }
+    .swatch-ref--missing {
+      background: repeating-linear-gradient(-45deg, #e2e8f0, #e2e8f0 5px, #cbd5e1 5px, #cbd5e1 10px);
+    }
     .swatch-thumb {
-      height: 4rem;
+      height: 4.5rem;
       background-size: cover;
       background-position: center;
     }
@@ -113,7 +152,9 @@
     }
     .swatch-meta code { display: block; color: var(--color-neutral-700); word-break: break-all; }
     .swatch-meta span { color: var(--color-neutral-500); }
-    .swatch.missing .swatch-color { background: repeating-linear-gradient(-45deg, #eee, #eee 6px, #ddd 6px, #ddd 12px); }
+    .swatch.missing .swatch-color {
+      background: repeating-linear-gradient(-45deg, #eee, #eee 6px, #ddd 6px, #ddd 12px);
+    }
     .swatch.missing .swatch-meta span { color: var(--color-error); }
 
     footer {
@@ -126,26 +167,40 @@
 </head>
 <body>
   <header id="site-header">
-    <h1>Artisti 7607 — frontend design</h1>
-    <p>Brand &amp; accessory colors from <code>assets/</code> + static neutrals / semantic</p>
+    <div class="header-row">
+      <img class="header-logo" src="assets/artisti-brand-logo.png" width="120" height="48" alt="Artisti 7607" />
+      <div class="header-copy">
+        <h1>Artisti 7607 — frontend design</h1>
+        <p>Brand &amp; accessory colors from <code>assets/</code> + static neutrals / semantic</p>
+      </div>
+    </div>
   </header>
 
   <main>
     <section aria-labelledby="brand-assets-heading">
       <h2 id="brand-assets-heading">Brand (from assets)</h2>
+      <p class="hint" style="margin-bottom:0.75rem">
+        Each tile: <strong>left</strong> = sampled color, <strong>right</strong> = the source file in <code>assets/</code> (banner / artwork clients recognize).
+      </p>
       <p id="brand-empty" class="hint" hidden>
         No brand files listed. Add images under <code>assets/</code> and their names to <code>assets/manifest.json</code> → <code>brand</code>. See <code>assets/README.md</code>.
       </p>
       <div id="brand-grid" class="swatch-grid" aria-live="polite">
         <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-brand-prime-blue)"></div>
+          <div class="swatch-bar">
+            <div class="swatch-color" style="background: var(--color-brand-prime-blue)"></div>
+            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart" width="84" height="72" loading="lazy" />
+          </div>
           <div class="swatch-meta">
             <code>--color-brand-prime-blue · #01a7e1</code>
             <span>Brand chart</span>
           </div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-brand-prime-navy)"></div>
+          <div class="swatch-bar">
+            <div class="swatch-color" style="background: var(--color-brand-prime-navy)"></div>
+            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart" width="84" height="72" loading="lazy" />
+          </div>
           <div class="swatch-meta">
             <code>--color-brand-prime-navy · #3b4352</code>
             <span>Brand chart</span>
@@ -157,7 +212,7 @@
     <section aria-labelledby="accessory-assets-heading">
       <h2 id="accessory-assets-heading">Accessory (from assets)</h2>
       <p class="hint" style="margin-bottom:0.75rem">
-        Supporting surfaces and accents: <strong>graded blue</strong> (hero wash), <strong>dark teal</strong> (chrome / black type), <strong>archive paper</strong> (warm document feel), <strong>pink</strong> (soft highlight), <strong>red</strong> (urgent / CTA). Order follows <code>manifest.json</code>.
+        Same layout as brand: color chip + <strong>reference thumbnail</strong>. Supporting surfaces and accents: <strong>graded blue</strong> (hero wash), <strong>dark teal</strong> (chrome / black type), <strong>archive paper</strong> (warm document feel), <strong>pink</strong> (soft highlight), <strong>red</strong> (urgent / CTA). Order follows <code>manifest.json</code>.
       </p>
       <p id="accessory-empty" class="hint" hidden>
         No accessory files listed. Add filenames to <code>manifest.json</code> → <code>accessory</code>.
@@ -300,16 +355,40 @@
     if (!missing && hex) {
       document.documentElement.style.setProperty(varName, hex);
     }
-    var top = document.createElement('div');
+
+    var bar = document.createElement('div');
+    bar.className = 'swatch-bar';
+
+    var colorDiv = document.createElement('div');
+    colorDiv.className = 'swatch-color';
     if (missing) {
-      top.className = 'swatch-color';
+      /* striped via CSS .missing .swatch-color */
     } else if (hex) {
-      top.className = 'swatch-color';
-      top.style.background = hex;
+      colorDiv.style.background = hex;
     } else {
-      top.className = 'swatch-thumb';
-      top.style.backgroundImage = 'url("' + url.replace(/"/g, '\\"') + '")';
+      colorDiv.classList.add('swatch-thumb');
+      colorDiv.style.backgroundImage = 'url("' + url.replace(/"/g, '\\"') + '")';
     }
+    bar.appendChild(colorDiv);
+
+    if (url) {
+      if (!missing) {
+        var ref = document.createElement('img');
+        ref.className = 'swatch-ref';
+        ref.src = url;
+        ref.alt = 'Source: ' + fileStem(stem).replace(/-/g, ' ');
+        ref.loading = 'lazy';
+        bar.appendChild(ref);
+      } else {
+        var ph = document.createElement('div');
+        ph.className = 'swatch-ref swatch-ref--missing';
+        ph.title = 'Asset missing';
+        bar.appendChild(ph);
+      }
+    }
+
+    wrap.appendChild(bar);
+
     var meta = document.createElement('div');
     meta.className = 'swatch-meta';
     var code = document.createElement('code');
@@ -318,7 +397,6 @@
     span.textContent = missing ? fileStem(stem) : (caption || label);
     meta.appendChild(code);
     meta.appendChild(span);
-    wrap.appendChild(top);
     wrap.appendChild(meta);
     return wrap;
   }
