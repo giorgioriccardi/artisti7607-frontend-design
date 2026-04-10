@@ -5,7 +5,7 @@ Public **design microsite** (GitHub Pages): [giorgioriccardi.github.io/artisti76
 | Page | Path |
 |------|------|
 | Brand / palette | [`index.html`](index.html) |
-| Headers mockups (6 scenarios) | [`headers-mockups.html`](headers-mockups.html) |
+| Headers mockups (9 scenarios, incl. 3 mega menus) | [`headers-mockups.html`](headers-mockups.html#mega-menus) |
 | Home page mockups (5 ideas) | [`home-page-mockups.html`](home-page-mockups.html) |
 | Rebuild / IA notes | [`docs/rebuild-notes.html`](docs/rebuild-notes.html) |
 

@@ -1,7 +1,7 @@
 /*
   Headers mockups page (headers-mockups.html).
   Blocks 1–3 use css/core/site.css (brand: 0 border-radius).
-  Blocks 4–6 (alternates) use --radius-future for a documented 2px option.
+  Blocks 4–6 (alternates) and 7–9 (mega menus) use --radius-future where noted.
 */
 :root {
   --radius-future: 2px;
@@ -490,6 +490,235 @@ main {
 
 .intro strong {
   color: var(--color-neutral-900);
+}
+
+/* —— Mega menu explorations (7–9) —— */
+.mock-wrap.mock-wrap--mega {
+  overflow: visible;
+}
+
+.mock-mega-stack {
+  position: relative;
+}
+
+.mock-mega-panel {
+  background: #fff;
+  border-top: 3px solid var(--color-brand-prime-blue);
+  border-bottom: 1px solid var(--color-neutral-200);
+  padding: 1.35rem 1.5rem 1.5rem;
+}
+
+.mock-mega-grid {
+  display: grid;
+  gap: 1.25rem 1.5rem;
+}
+
+.mock-mega-grid--4 {
+  grid-template-columns: 1.35fr 1fr 1fr 1fr;
+}
+
+@media (max-width: 900px) {
+  .mock-mega-grid--4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .mock-mega-grid--4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mock-mega-grid--3 {
+  grid-template-columns: 1fr 1fr 1.1fr;
+}
+
+@media (max-width: 800px) {
+  .mock-mega-grid--3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mock-mega-grid--links6 {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-neutral-200);
+}
+
+@media (max-width: 640px) {
+  .mock-mega-grid--links6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .mock-mega-grid--links6 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mock-mega-col {
+  min-width: 0;
+  padding-right: 0.5rem;
+  border-right: 1px solid var(--color-neutral-200);
+}
+
+.mock-mega-col:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+@media (max-width: 520px) {
+  .mock-mega-col {
+    border-right: none;
+    padding-right: 0;
+    border-bottom: 1px solid var(--color-neutral-200);
+    padding-bottom: 1rem;
+  }
+
+  .mock-mega-col:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.mock-mega-col--feature {
+  background: var(--color-neutral-50);
+  margin: -0.35rem 0 -0.5rem -0.25rem;
+  padding: 1rem 1.1rem 1.1rem;
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-future);
+}
+
+.mock-mega-col--cta .mock-mega-small {
+  margin-bottom: 0.65rem;
+}
+
+.mock-mega-kicker {
+  margin: 0 0 0.65rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-brand-prime-blue);
+}
+
+.mock-mega-lede {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--color-neutral-700);
+}
+
+.mock-mega-small {
+  margin: 0 0 0.65rem;
+  font-size: 0.8125rem;
+  color: var(--color-neutral-500);
+  line-height: 1.45;
+}
+
+.mock-mega-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.8125rem;
+}
+
+.mock-mega-links li {
+  margin-bottom: 0.45rem;
+}
+
+.mock-mega-links a {
+  color: var(--color-neutral-700);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.mock-mega-links a:hover {
+  color: var(--color-brand-prime-blue);
+  border-bottom-color: rgba(1, 167, 225, 0.35);
+}
+
+.mock-mega-panel--air {
+  box-shadow: 0 12px 36px rgba(30, 45, 58, 0.08);
+  border-top: 1px solid var(--color-neutral-200);
+  border-left: 1px solid var(--color-neutral-200);
+  border-right: 1px solid var(--color-neutral-200);
+  margin: 0 -1px -1px;
+  border-radius: 0 0 var(--radius-future) var(--radius-future);
+}
+
+.mock-wrap--mega-air .mock-mega-stack .mock-air-top {
+  border-bottom: none;
+}
+
+.mock-mega-col--thumbs .mock-mega-thumb-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.65rem;
+}
+
+.mock-mega-thumb {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.55rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-neutral-700);
+  background: var(--color-neutral-50);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-future);
+}
+
+.mock-mega-panel--dock {
+  border-top: 4px solid var(--color-brand-prime-navy);
+  background: linear-gradient(180deg, #fafcfd 0%, #fff 35%);
+}
+
+.mock-mega-band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.mock-mega-band__text {
+  margin: 0;
+  flex: 1 1 220px;
+  max-width: 36rem;
+  font-size: 0.875rem;
+  color: var(--color-neutral-700);
+  line-height: 1.5;
+}
+
+.mock-mega-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.85rem 0.65rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-neutral-900);
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-future);
+  min-height: 3.25rem;
+}
+
+.mock-mega-tile:hover {
+  border-color: var(--color-brand-prime-blue);
+  color: var(--color-brand-prime-blue);
 }
 
 footer.page-foot {
