@@ -20,6 +20,11 @@
       --color-brand-prime-blue: #01a7e1;
       --color-brand-prime-navy: #3b4352;
 
+      /*
+        Accessory reference medians (64px Pillow sample — live page uses JS average):
+        graded blue #136d9d · dark surface #264f59 · archive paper #e9d4b2 · pink #c29ad5 · red #cc0200
+      */
+
       --color-neutral-900: #1e2d3a;
       --color-neutral-700: #3d4f5f;
       --color-neutral-500: #6b7f90;
@@ -151,6 +156,9 @@
 
     <section aria-labelledby="accessory-assets-heading">
       <h2 id="accessory-assets-heading">Accessory (from assets)</h2>
+      <p class="hint" style="margin-bottom:0.75rem">
+        Supporting surfaces and accents: <strong>graded blue</strong> (hero wash), <strong>dark teal</strong> (chrome / black type), <strong>archive paper</strong> (warm document feel), <strong>pink</strong> (soft highlight), <strong>red</strong> (urgent / CTA). Order follows <code>manifest.json</code>.
+      </p>
       <p id="accessory-empty" class="hint" hidden>
         No accessory files listed. Add filenames to <code>manifest.json</code> → <code>accessory</code>.
       </p>
@@ -284,7 +292,7 @@
     }).join('');
   }
 
-  function swatchEl(url, stem, hex, missing) {
+  function swatchEl(url, stem, hex, missing, caption) {
     var varName = cssVarFromStem(fileStem(stem));
     var label = labelFromStem(fileStem(stem));
     var wrap = document.createElement('div');
@@ -307,7 +315,7 @@
     var code = document.createElement('code');
     code.textContent = missing ? '(missing) ' + fileStem(stem) : varName + ' · ' + hex;
     var span = document.createElement('span');
-    span.textContent = missing ? fileStem(stem) : label;
+    span.textContent = missing ? fileStem(stem) : (caption || label);
     meta.appendChild(code);
     meta.appendChild(span);
     wrap.appendChild(top);
@@ -324,7 +332,7 @@
     });
   }
 
-  function renderGroup(files, gridEl, emptyEl) {
+  function renderGroup(files, gridEl, emptyEl, captionsByFile) {
     if (!files || !files.length) {
       if (gridEl.children.length === 0) emptyEl.hidden = false;
       return Promise.resolve();
@@ -334,16 +342,25 @@
     files.forEach(function (name) {
       chain = chain.then(function () {
         var url = assetUrl(name);
+        var cap = captionsByFile && captionsByFile[name];
         return loadImage(url).then(function (img) {
           var hex = averageColor(img);
-          gridEl.appendChild(swatchEl(url, name, hex, false));
+          gridEl.appendChild(swatchEl(url, name, hex, false, cap));
         }).catch(function () {
-          gridEl.appendChild(swatchEl(url, name, null, true));
+          gridEl.appendChild(swatchEl(url, name, null, true, cap));
         });
       });
     });
     return chain;
   }
+
+  var ACCESSORY_CAPTIONS = {
+    'artisti-graded-blue-bg.jpg': 'Hero / atmosphere · graded blue wash',
+    'artisti-darker-bg_black-text.jpg': 'Dark UI · teal + black type',
+    'artisti-archivio-old-paper.png': 'Archive · warm old paper',
+    'artisti-pink.jpg': 'Soft lilac accent',
+    'artisti-red-extra-color.jpg': 'Urgent / CTA red'
+  };
 
   fetch(assetUrl('manifest.json'))
     .then(function (r) {
@@ -354,7 +371,7 @@
       var brand = data.brand || [];
       var accessory = data.accessory || [];
       return renderGroup(brand, document.getElementById('brand-grid'), document.getElementById('brand-empty')).then(function () {
-        return renderGroup(accessory, document.getElementById('accessory-grid'), document.getElementById('accessory-empty'));
+        return renderGroup(accessory, document.getElementById('accessory-grid'), document.getElementById('accessory-empty'), ACCESSORY_CAPTIONS);
       });
     })
     .catch(function () {
