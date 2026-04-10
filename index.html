@@ -16,6 +16,15 @@
       --color-accent: #cc1514;
       --color-accent-muted: #95bcce;
 
+      /*
+        From artisti-all-brand-colors.jpg — Prime Video-style wordmark pair
+        (sampled with Pillow, not “read” as a human swatch list):
+        cyan “prime” + arrow: median of left color band → #01a7e1
+        dark “video”: mean of darkest ~8% pixels in image right half → #3b4352
+      */
+      --color-brand-prime-blue: #01a7e1;
+      --color-brand-prime-navy: #3b4352;
+
       --color-neutral-900: #1e2d3a;
       --color-neutral-700: #3d4f5f;
       --color-neutral-500: #6b7f90;
@@ -77,6 +86,13 @@
       color: var(--color-neutral-700);
     }
 
+    section h3 {
+      margin: 1.5rem 0 0.65rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-neutral-700);
+    }
+
     .hint {
       margin: 0;
       font-size: 0.875rem;
@@ -130,6 +146,28 @@
         No brand files listed. Add images under <code>assets/</code> and their names to <code>assets/manifest.json</code> → <code>brand</code>. See <code>assets/README.md</code>.
       </p>
       <div id="brand-grid" class="swatch-grid" aria-live="polite"></div>
+
+      <h3 id="brand-prime-heading">Prime Video wordmark pair (from chart)</h3>
+      <p class="hint" style="margin-bottom:0.75rem">
+        Two colors from the Prime Video–style treatment in <code>artisti-all-brand-colors.jpg</code>.
+        Hex values are <strong>sampled in software</strong> (regional median / dark-pixel average)—we do not automatically read every named swatch in a JPEG; re-sample if the master file changes.
+      </p>
+      <div class="swatch-grid" aria-labelledby="brand-prime-heading">
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-brand-prime-blue)"></div>
+          <div class="swatch-meta">
+            <code>brand-prime-blue</code>
+            <span>“prime” + curve · #01a7e1</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-brand-prime-navy)"></div>
+          <div class="swatch-meta">
+            <code>brand-prime-navy</code>
+            <span>“video” dark · #3b4352</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section aria-labelledby="accessory-assets-heading">
