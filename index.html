@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Artisti 7607 — Frontend design (test)</title>
+  <title>Artisti 7607 — Frontend design</title>
   <style>
     :root {
-      /* Brand — adjust when Blocksy/child theme tokens are finalized */
+      /* Fallbacks until assets load (or if manifest is empty) */
       --color-primary: #1a365d;
       --color-primary-light: #2c5282;
       --color-accent: #c05621;
@@ -36,9 +36,10 @@
     }
 
     header {
-      background: var(--color-primary);
+      background: var(--header-bg, var(--color-primary));
       color: #fff;
       padding: 1.25rem 1.5rem;
+      transition: background 0.2s ease;
     }
     header h1 { margin: 0 0 0.25rem; font-size: 1.25rem; }
     header p { margin: 0; opacity: 0.9; font-size: 0.875rem; }
@@ -60,6 +61,12 @@
       color: var(--color-neutral-700);
     }
 
+    .hint {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--color-neutral-500);
+    }
+
     .swatch-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -71,13 +78,20 @@
       border: 1px solid var(--color-neutral-200);
     }
     .swatch-color { height: 4rem; }
+    .swatch-thumb {
+      height: 4rem;
+      background-size: cover;
+      background-position: center;
+    }
     .swatch-meta {
       padding: 0.5rem 0.65rem;
       font-size: 0.75rem;
       background: #fff;
     }
-    .swatch-meta code { display: block; color: var(--color-neutral-700); }
+    .swatch-meta code { display: block; color: var(--color-neutral-700); word-break: break-all; }
     .swatch-meta span { color: var(--color-neutral-500); }
+    .swatch.missing .swatch-color { background: repeating-linear-gradient(-45deg, #eee, #eee 6px, #ddd 6px, #ddd 12px); }
+    .swatch.missing .swatch-meta span { color: var(--color-error); }
 
     footer {
       text-align: center;
@@ -88,74 +102,57 @@
   </style>
 </head>
 <body>
-  <header>
+  <header id="site-header">
     <h1>Artisti 7607 — frontend design</h1>
-    <p>Placeholder color scheme for GitHub Pages smoke test</p>
+    <p>Brand &amp; accessory colors from <code>assets/</code> + static neutrals / semantic</p>
   </header>
 
   <main>
-    <section aria-labelledby="brand-heading">
-      <h2 id="brand-heading">Brand</h2>
-      <div class="swatch-grid">
-        <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-primary)"></div>
-          <div class="swatch-meta">
-            <code>--color-primary</code>
-            <span>Primary</span>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-primary-light)"></div>
-          <div class="swatch-meta">
-            <code>--color-primary-light</code>
-            <span>Primary light</span>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-accent)"></div>
-          <div class="swatch-meta">
-            <code>--color-accent</code>
-            <span>Accent</span>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-accent-muted)"></div>
-          <div class="swatch-meta">
-            <code>--color-accent-muted</code>
-            <span>Accent muted</span>
-          </div>
-        </div>
-      </div>
+    <section aria-labelledby="brand-assets-heading">
+      <h2 id="brand-assets-heading">Brand (from assets)</h2>
+      <p id="brand-empty" class="hint" hidden>
+        No brand files listed. Add images under <code>assets/</code> and their names to <code>assets/manifest.json</code> → <code>brand</code>. See <code>assets/README.md</code>.
+      </p>
+      <div id="brand-grid" class="swatch-grid" aria-live="polite"></div>
+    </section>
+
+    <section aria-labelledby="accessory-assets-heading">
+      <h2 id="accessory-assets-heading">Accessory (from assets)</h2>
+      <p id="accessory-empty" class="hint" hidden>
+        No accessory files listed. Add filenames to <code>manifest.json</code> → <code>accessory</code>.
+      </p>
+      <div id="accessory-grid" class="swatch-grid" aria-live="polite"></div>
     </section>
 
     <section aria-labelledby="neutral-heading">
-      <h2 id="neutral-heading">Neutrals</h2>
+      <h2 id="neutral-heading">Neutrals (static)</h2>
+      <p class="hint" style="margin-bottom:1rem">UI grays — adjust in <code>:root</code> when design tokens are finalized.</p>
       <div class="swatch-grid">
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-neutral-900)"></div>
-          <div class="swatch-meta"><code>900</code><span>Text strong</span></div>
+          <div class="swatch-meta"><code>neutral-900</code><span>Text strong</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-neutral-700)"></div>
-          <div class="swatch-meta"><code>700</code><span>Text body</span></div>
+          <div class="swatch-meta"><code>neutral-700</code><span>Text body</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-neutral-500)"></div>
-          <div class="swatch-meta"><code>500</code><span>Muted</span></div>
+          <div class="swatch-meta"><code>neutral-500</code><span>Muted</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-neutral-200)"></div>
-          <div class="swatch-meta"><code>200</code><span>Borders</span></div>
+          <div class="swatch-meta"><code>neutral-200</code><span>Borders</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-neutral-50); border-bottom: 1px solid var(--color-neutral-200)"></div>
-          <div class="swatch-meta"><code>50</code><span>Page bg</span></div>
+          <div class="swatch-meta"><code>neutral-50</code><span>Page bg</span></div>
         </div>
       </div>
     </section>
 
     <section aria-labelledby="semantic-heading">
-      <h2 id="semantic-heading">Semantic</h2>
+      <h2 id="semantic-heading">Semantic (static)</h2>
       <div class="swatch-grid">
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-success)"></div>
@@ -178,7 +175,150 @@
   </main>
 
   <footer>
-    Static test for <strong>giorgioriccardi.github.io/artisti7607-frontend-design/</strong>
+    <strong>giorgioriccardi.github.io/artisti7607-frontend-design/</strong> — palette driven by <code>assets/manifest.json</code>
   </footer>
+
+  <script>
+(function () {
+  function basePath() {
+    var p = window.location.pathname;
+    if (p.endsWith('/')) return p;
+    if (/\.html?$/i.test(p)) return p.replace(/[^/]+$/, '');
+    return p + '/';
+  }
+
+  function assetUrl(name) {
+    return basePath() + 'assets/' + encodeURI(name.replace(/^\/+/, ''));
+  }
+
+  function fileStem(name) {
+    return name.replace(/^.*\//, '').replace(/\.[^.]+$/, '');
+  }
+
+  function labelFromStem(stem) {
+    return stem.replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim().replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  }
+
+  function cssVarFromStem(stem) {
+    var slug = stem.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    return '--color-' + slug;
+  }
+
+  function averageColor(img) {
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d');
+    var w = 48, h = 48;
+    canvas.width = w;
+    canvas.height = h;
+    try {
+      ctx.drawImage(img, 0, 0, w, h);
+    } catch (e) {
+      return null;
+    }
+    var data = ctx.getImageData(0, 0, w, h).data;
+    var r = 0, g = 0, b = 0, n = 0;
+    for (var i = 0; i < data.length; i += 4) {
+      var a = data[i + 3];
+      if (a < 8) continue;
+      r += data[i];
+      g += data[i + 1];
+      b += data[i + 2];
+      n++;
+    }
+    if (!n) return null;
+    r = Math.round(r / n);
+    g = Math.round(g / n);
+    b = Math.round(b / n);
+    return '#' + [r, g, b].map(function (x) {
+      return x.toString(16).padStart(2, '0');
+    }).join('');
+  }
+
+  function swatchEl(url, stem, hex, missing) {
+    var varName = cssVarFromStem(fileStem(stem));
+    var label = labelFromStem(fileStem(stem));
+    var wrap = document.createElement('div');
+    wrap.className = 'swatch' + (missing ? ' missing' : '');
+    if (!missing && hex) {
+      document.documentElement.style.setProperty(varName, hex);
+    }
+    var top = document.createElement('div');
+    if (missing) {
+      top.className = 'swatch-color';
+    } else if (hex) {
+      top.className = 'swatch-color';
+      top.style.background = hex;
+    } else {
+      top.className = 'swatch-thumb';
+      top.style.backgroundImage = 'url("' + url.replace(/"/g, '\\"') + '")';
+    }
+    var meta = document.createElement('div');
+    meta.className = 'swatch-meta';
+    var code = document.createElement('code');
+    code.textContent = missing ? '(missing) ' + fileStem(stem) : varName + ' · ' + hex;
+    var span = document.createElement('span');
+    span.textContent = missing ? fileStem(stem) : label;
+    meta.appendChild(code);
+    meta.appendChild(span);
+    wrap.appendChild(top);
+    wrap.appendChild(meta);
+    return wrap;
+  }
+
+  function loadImage(url) {
+    return new Promise(function (resolve, reject) {
+    var img = new Image();
+    img.onload = function () { resolve(img); };
+      img.onerror = function () { reject(new Error('load')); };
+      img.src = url;
+    });
+  }
+
+  function renderGroup(files, gridEl, emptyEl, setHeaderFromFirst) {
+    if (!files || !files.length) {
+      emptyEl.hidden = false;
+      return Promise.resolve(null);
+    }
+    emptyEl.hidden = true;
+    var firstHex = null;
+    var chain = Promise.resolve();
+    files.forEach(function (name) {
+      chain = chain.then(function () {
+        var url = assetUrl(name);
+        var stem = fileStem(name);
+        return loadImage(url).then(function (img) {
+          var hex = averageColor(img);
+          gridEl.appendChild(swatchEl(url, name, hex, false));
+          if (hex && firstHex === null && setHeaderFromFirst) firstHex = hex;
+        }).catch(function () {
+          gridEl.appendChild(swatchEl(url, name, null, true));
+        });
+      });
+    });
+    return chain.then(function () { return firstHex; });
+  }
+
+  fetch(assetUrl('manifest.json'))
+    .then(function (r) {
+      if (!r.ok) throw new Error('manifest');
+      return r.json();
+    })
+    .then(function (data) {
+      var brand = data.brand || [];
+      var accessory = data.accessory || [];
+      return renderGroup(brand, document.getElementById('brand-grid'), document.getElementById('brand-empty'), true).then(function (firstHex) {
+        if (firstHex) {
+          document.documentElement.style.setProperty('--header-bg', firstHex);
+        }
+        return renderGroup(accessory, document.getElementById('accessory-grid'), document.getElementById('accessory-empty'), false);
+      });
+    })
+    .catch(function () {
+      document.getElementById('brand-empty').hidden = false;
+      document.getElementById('brand-empty').textContent = 'Could not load assets/manifest.json. Ensure it exists and GitHub Pages has finished deploying.';
+      document.getElementById('accessory-empty').hidden = true;
+    });
+})();
+  </script>
 </body>
 </html>
