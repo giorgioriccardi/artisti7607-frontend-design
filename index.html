@@ -22,10 +22,22 @@
       --color-neutral-200: #c8d4de;
       --color-neutral-50: #f0f4f8;
 
-      --color-success: #2d6b4f;
-      --color-warning: #b45309;
-      --color-error: #cc1514;
-      --color-info: #216f98;
+      /*
+        Semantic — same DNA as brand blues + accent red:
+        success = blue-teal (shares hue with graded blue / logo slate)
+        warning = coral-terracotta (warm neighbor of accent red, not flat amber)
+        error = vivid brand red (same hue as accessory red, slightly brighter for UI)
+        info = lifted cyan-blue (brighter sibling of graded #216f98)
+        *-soft = tinted surfaces for alerts / chips (still on-brand)
+      */
+      --color-success: #178a7a;
+      --color-success-soft: #dff2ef;
+      --color-warning: #cf5c3b;
+      --color-warning-soft: #fceee9;
+      --color-error: #d92222;
+      --color-error-soft: #fde8e8;
+      --color-info: #2f8db8;
+      --color-info-soft: #e3f1f8;
 
       --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     }
@@ -157,23 +169,39 @@
 
     <section aria-labelledby="semantic-heading">
       <h2 id="semantic-heading">Semantic (static)</h2>
-      <p class="hint" style="margin-bottom:1rem"><strong>Error</strong> / <strong>info</strong> track the red and graded-blue accessory samples; success and warning are generic complements.</p>
+      <p class="hint" style="margin-bottom:1rem">Derived from the same cool blues and accent red as brand/accessory: <strong>teal success</strong>, <strong>coral warning</strong> (warm cousin of red), <strong>brand-strength error</strong>, <strong>lifted info blue</strong>. Each pair is <code>solid</code> + <code>-soft</code> for surfaces.</p>
       <div class="swatch-grid">
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-success)"></div>
-          <div class="swatch-meta"><code>success</code></div>
+          <div class="swatch-meta"><code>success</code><span>Blue-teal · harmony with graded blue</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-success-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
+          <div class="swatch-meta"><code>success-soft</code><span>Alert / chip fill</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-warning)"></div>
-          <div class="swatch-meta"><code>warning</code></div>
+          <div class="swatch-meta"><code>warning</code><span>Coral · warm kin to accent red</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-warning-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
+          <div class="swatch-meta"><code>warning-soft</code><span>Alert / chip fill</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-error)"></div>
-          <div class="swatch-meta"><code>error</code></div>
+          <div class="swatch-meta"><code>error</code><span>Brand red hue, UI vivid</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-error-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
+          <div class="swatch-meta"><code>error-soft</code><span>Alert / chip fill</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-info)"></div>
-          <div class="swatch-meta"><code>info</code></div>
+          <div class="swatch-meta"><code>info</code><span>Lifted cyan-blue · graded blue family</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-info-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
+          <div class="swatch-meta"><code>info-soft</code><span>Alert / chip fill</span></div>
         </div>
       </div>
     </section>
