@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Artisti 7607 — Frontend design</title>
+  <title>Artisti 7607 — Frontend Brand 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&amp;display=swap" rel="stylesheet" />
   <style>
     :root {
       /*
@@ -46,16 +50,27 @@
       --color-info: #2f8db8;
       --color-info-soft: #e3f1f8;
 
-      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      /* Matches live site https://artisti7607.com (Lato body) */
+      --font-sans: "Lato", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: var(--font-sans);
+      font-weight: 400;
       color: var(--color-neutral-900);
       background: var(--color-neutral-50);
       line-height: 1.5;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.9em;
     }
 
     header {
@@ -64,12 +79,14 @@
       padding: 1.25rem 1.5rem;
       transition: background 0.2s ease;
     }
+
     .header-row {
       display: flex;
       align-items: center;
       gap: 1rem;
       flex-wrap: wrap;
     }
+
     .header-logo {
       height: 3rem;
       width: auto;
@@ -78,10 +95,25 @@
       object-fit: contain;
       filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.18));
     }
-    .header-copy h1 { margin: 0 0 0.25rem; font-size: 1.25rem; }
-    .header-copy p { margin: 0; opacity: 0.92; font-size: 0.875rem; }
 
-    main { max-width: 56rem; margin: 0 auto; padding: 1.5rem; }
+    .header-copy h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .header-copy p {
+      margin: 0;
+      opacity: 0.92;
+      font-size: 0.875rem;
+      font-weight: 400;
+    }
+
+    main {
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
 
     section {
       background: #fff;
@@ -90,9 +122,11 @@
       padding: 1.25rem 1.5rem;
       margin-bottom: 1.25rem;
     }
+
     section h2 {
       margin: 0 0 1rem;
       font-size: 1rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: var(--color-neutral-700);
@@ -109,24 +143,29 @@
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 0.75rem;
     }
+
     .swatch {
       border-radius: 6px;
       overflow: hidden;
       border: 1px solid var(--color-neutral-200);
     }
+
     .swatch-bar {
       display: flex;
       height: 4.5rem;
       min-height: 4.5rem;
     }
+
     .swatch-bar .swatch-color {
       flex: 1;
       min-width: 0;
       height: 100%;
     }
-    .swatch > .swatch-color {
+
+    .swatch>.swatch-color {
       height: 4.5rem;
     }
+
     .swatch-ref {
       width: 5.25rem;
       flex-shrink: 0;
@@ -137,25 +176,40 @@
       display: block;
       background: var(--color-neutral-200);
     }
+
     .swatch-ref--missing {
       background: repeating-linear-gradient(-45deg, #e2e8f0, #e2e8f0 5px, #cbd5e1 5px, #cbd5e1 10px);
     }
+
     .swatch-thumb {
       height: 4.5rem;
       background-size: cover;
       background-position: center;
     }
+
     .swatch-meta {
       padding: 0.5rem 0.65rem;
       font-size: 0.75rem;
       background: #fff;
     }
-    .swatch-meta code { display: block; color: var(--color-neutral-700); word-break: break-all; }
-    .swatch-meta span { color: var(--color-neutral-500); }
+
+    .swatch-meta code {
+      display: block;
+      color: var(--color-neutral-700);
+      word-break: break-all;
+    }
+
+    .swatch-meta span {
+      color: var(--color-neutral-500);
+    }
+
     .swatch.missing .swatch-color {
       background: repeating-linear-gradient(-45deg, #eee, #eee 6px, #ddd 6px, #ddd 12px);
     }
-    .swatch.missing .swatch-meta span { color: var(--color-error); }
+
+    .swatch.missing .swatch-meta span {
+      color: var(--color-error);
+    }
 
     footer {
       text-align: center;
@@ -165,12 +219,13 @@
     }
   </style>
 </head>
+
 <body>
   <header id="site-header">
     <div class="header-row">
       <img class="header-logo" src="assets/artisti-brand-logo.png" width="120" height="48" alt="Artisti 7607" />
       <div class="header-copy">
-        <h1>Artisti 7607 — frontend design</h1>
+        <h1>Artisti 7607 — Frontend Brand 2026</h1>
         <p>Brand &amp; accessory colors from <code>assets/</code> + static neutrals / semantic</p>
       </div>
     </div>
@@ -180,16 +235,19 @@
     <section aria-labelledby="brand-assets-heading">
       <h2 id="brand-assets-heading">Brand (from assets)</h2>
       <p class="hint" style="margin-bottom:0.75rem">
-        Each tile: <strong>left</strong> = sampled color, <strong>right</strong> = the source file in <code>assets/</code> (banner / artwork clients recognize).
+        Each tile: <strong>left</strong> = sampled color, <strong>right</strong> = the source file in
+        <code>assets/</code> (banner / artwork clients recognize).
       </p>
       <p id="brand-empty" class="hint" hidden>
-        No brand files listed. Add images under <code>assets/</code> and their names to <code>assets/manifest.json</code> → <code>brand</code>. See <code>assets/README.md</code>.
+        No brand files listed. Add images under <code>assets/</code> and their names to
+        <code>assets/manifest.json</code> → <code>brand</code>. See <code>assets/README.md</code>.
       </p>
       <div id="brand-grid" class="swatch-grid" aria-live="polite">
         <div class="swatch">
           <div class="swatch-bar">
             <div class="swatch-color" style="background: var(--color-brand-prime-blue)"></div>
-            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart" width="84" height="72" loading="lazy" />
+            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart"
+              width="84" height="72" loading="lazy" />
           </div>
           <div class="swatch-meta">
             <code>--color-brand-prime-blue · #01a7e1</code>
@@ -199,7 +257,8 @@
         <div class="swatch">
           <div class="swatch-bar">
             <div class="swatch-color" style="background: var(--color-brand-prime-navy)"></div>
-            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart" width="84" height="72" loading="lazy" />
+            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart"
+              width="84" height="72" loading="lazy" />
           </div>
           <div class="swatch-meta">
             <code>--color-brand-prime-navy · #3b4352</code>
@@ -212,7 +271,10 @@
     <section aria-labelledby="accessory-assets-heading">
       <h2 id="accessory-assets-heading">Accessory (from assets)</h2>
       <p class="hint" style="margin-bottom:0.75rem">
-        Same layout as brand: color chip + <strong>reference thumbnail</strong>. Supporting surfaces and accents: <strong>graded blue</strong> (hero wash), <strong>dark teal</strong> (chrome / black type), <strong>archive paper</strong> (warm document feel), <strong>pink</strong> (soft highlight), <strong>red</strong> (urgent / CTA). Order follows <code>manifest.json</code>.
+        Same layout as brand: color chip + <strong>reference thumbnail</strong>. Supporting surfaces and accents:
+        <strong>graded blue</strong> (hero wash), <strong>dark teal</strong> (chrome / black type), <strong>archive
+          paper</strong> (warm document feel), <strong>pink</strong> (soft highlight), <strong>red</strong> (urgent /
+        CTA). Order follows <code>manifest.json</code>.
       </p>
       <p id="accessory-empty" class="hint" hidden>
         No accessory files listed. Add filenames to <code>manifest.json</code> → <code>accessory</code>.
@@ -222,7 +284,8 @@
 
     <section aria-labelledby="neutral-heading">
       <h2 id="neutral-heading">Neutrals (static)</h2>
-      <p class="hint" style="margin-bottom:1rem">Cool slate neutrals to sit with the blue-forward brand assets; tweak in <code>:root</code> if Blocksy tokens differ.</p>
+      <p class="hint" style="margin-bottom:1rem">Cool slate neutrals to sit with the blue-forward brand assets; tweak in
+        <code>:root</code> if Blocksy tokens differ.</p>
       <div class="swatch-grid">
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-neutral-900)"></div>
@@ -241,7 +304,8 @@
           <div class="swatch-meta"><code>neutral-200</code><span>Borders</span></div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-neutral-50); border-bottom: 1px solid var(--color-neutral-200)"></div>
+          <div class="swatch-color"
+            style="background: var(--color-neutral-50); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>neutral-50</code><span>Page bg</span></div>
         </div>
       </div>
@@ -249,14 +313,17 @@
 
     <section aria-labelledby="semantic-heading">
       <h2 id="semantic-heading">Semantic (static)</h2>
-      <p class="hint" style="margin-bottom:1rem"><strong>Success</strong> / <strong>warning</strong> are vivid but still on-axis: saturated blue-teal and coral-orange. <strong>Error</strong> / <strong>info</strong> unchanged. Each pair is <code>solid</code> + <code>-soft</code> for surfaces.</p>
+      <p class="hint" style="margin-bottom:1rem"><strong>Success</strong> / <strong>warning</strong> are vivid but still
+        on-axis: saturated blue-teal and coral-orange. <strong>Error</strong> / <strong>info</strong> unchanged. Each
+        pair is <code>solid</code> + <code>-soft</code> for surfaces.</p>
       <div class="swatch-grid">
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-success)"></div>
           <div class="swatch-meta"><code>success</code><span>Vivid blue-teal · #0db39c</span></div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-success-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
+          <div class="swatch-color"
+            style="background: var(--color-success-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>success-soft</code><span>Alert / chip fill</span></div>
         </div>
         <div class="swatch">
@@ -264,7 +331,8 @@
           <div class="swatch-meta"><code>warning</code><span>Vivid coral-orange · #ff6b35</span></div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-warning-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
+          <div class="swatch-color"
+            style="background: var(--color-warning-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>warning-soft</code><span>Alert / chip fill</span></div>
         </div>
         <div class="swatch">
@@ -272,7 +340,8 @@
           <div class="swatch-meta"><code>error</code><span>Brand red hue, UI vivid</span></div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-error-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
+          <div class="swatch-color"
+            style="background: var(--color-error-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>error-soft</code><span>Alert / chip fill</span></div>
         </div>
         <div class="swatch">
@@ -280,7 +349,8 @@
           <div class="swatch-meta"><code>info</code><span>Lifted cyan-blue · graded blue family</span></div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-info-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
+          <div class="swatch-color"
+            style="background: var(--color-info-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>info-soft</code><span>Alert / chip fill</span></div>
         </div>
       </div>
@@ -288,176 +358,178 @@
   </main>
 
   <footer>
-    <strong>giorgioriccardi.github.io/artisti7607-frontend-design/</strong> — palette driven by <code>assets/manifest.json</code>
+    <strong>giorgioriccardi.github.io/artisti7607-frontend-design/</strong> — palette driven by
+    <code>assets/manifest.json</code>
   </footer>
 
   <script>
-(function () {
-  function basePath() {
-    var p = window.location.pathname;
-    if (p.endsWith('/')) return p;
-    if (/\.html?$/i.test(p)) return p.replace(/[^/]+$/, '');
-    return p + '/';
-  }
-
-  function assetUrl(name) {
-    return basePath() + 'assets/' + encodeURI(name.replace(/^\/+/, ''));
-  }
-
-  function fileStem(name) {
-    return name.replace(/^.*\//, '').replace(/\.[^.]+$/, '');
-  }
-
-  function labelFromStem(stem) {
-    return stem.replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim().replace(/\b\w/g, function (c) { return c.toUpperCase(); });
-  }
-
-  function cssVarFromStem(stem) {
-    var slug = stem.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-    return '--color-' + slug;
-  }
-
-  function averageColor(img) {
-    var canvas = document.createElement('canvas');
-    var ctx = canvas.getContext('2d');
-    var w = 48, h = 48;
-    canvas.width = w;
-    canvas.height = h;
-    try {
-      ctx.drawImage(img, 0, 0, w, h);
-    } catch (e) {
-      return null;
-    }
-    var data = ctx.getImageData(0, 0, w, h).data;
-    var r = 0, g = 0, b = 0, n = 0;
-    for (var i = 0; i < data.length; i += 4) {
-      var a = data[i + 3];
-      if (a < 8) continue;
-      r += data[i];
-      g += data[i + 1];
-      b += data[i + 2];
-      n++;
-    }
-    if (!n) return null;
-    r = Math.round(r / n);
-    g = Math.round(g / n);
-    b = Math.round(b / n);
-    return '#' + [r, g, b].map(function (x) {
-      return x.toString(16).padStart(2, '0');
-    }).join('');
-  }
-
-  function swatchEl(url, stem, hex, missing, caption) {
-    var varName = cssVarFromStem(fileStem(stem));
-    var label = labelFromStem(fileStem(stem));
-    var wrap = document.createElement('div');
-    wrap.className = 'swatch' + (missing ? ' missing' : '');
-    if (!missing && hex) {
-      document.documentElement.style.setProperty(varName, hex);
-    }
-
-    var bar = document.createElement('div');
-    bar.className = 'swatch-bar';
-
-    var colorDiv = document.createElement('div');
-    colorDiv.className = 'swatch-color';
-    if (missing) {
-      /* striped via CSS .missing .swatch-color */
-    } else if (hex) {
-      colorDiv.style.background = hex;
-    } else {
-      colorDiv.classList.add('swatch-thumb');
-      colorDiv.style.backgroundImage = 'url("' + url.replace(/"/g, '\\"') + '")';
-    }
-    bar.appendChild(colorDiv);
-
-    if (url) {
-      if (!missing) {
-        var ref = document.createElement('img');
-        ref.className = 'swatch-ref';
-        ref.src = url;
-        ref.alt = 'Source: ' + fileStem(stem).replace(/-/g, ' ');
-        ref.loading = 'lazy';
-        bar.appendChild(ref);
-      } else {
-        var ph = document.createElement('div');
-        ph.className = 'swatch-ref swatch-ref--missing';
-        ph.title = 'Asset missing';
-        bar.appendChild(ph);
+    (function () {
+      function basePath() {
+        var p = window.location.pathname;
+        if (p.endsWith('/')) return p;
+        if (/\.html?$/i.test(p)) return p.replace(/[^/]+$/, '');
+        return p + '/';
       }
-    }
 
-    wrap.appendChild(bar);
+      function assetUrl(name) {
+        return basePath() + 'assets/' + encodeURI(name.replace(/^\/+/, ''));
+      }
 
-    var meta = document.createElement('div');
-    meta.className = 'swatch-meta';
-    var code = document.createElement('code');
-    code.textContent = missing ? '(missing) ' + fileStem(stem) : varName + ' · ' + hex;
-    var span = document.createElement('span');
-    span.textContent = missing ? fileStem(stem) : (caption || label);
-    meta.appendChild(code);
-    meta.appendChild(span);
-    wrap.appendChild(meta);
-    return wrap;
-  }
+      function fileStem(name) {
+        return name.replace(/^.*\//, '').replace(/\.[^.]+$/, '');
+      }
 
-  function loadImage(url) {
-    return new Promise(function (resolve, reject) {
-    var img = new Image();
-    img.onload = function () { resolve(img); };
-      img.onerror = function () { reject(new Error('load')); };
-      img.src = url;
-    });
-  }
+      function labelFromStem(stem) {
+        return stem.replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim().replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+      }
 
-  function renderGroup(files, gridEl, emptyEl, captionsByFile) {
-    if (!files || !files.length) {
-      if (gridEl.children.length === 0) emptyEl.hidden = false;
-      return Promise.resolve();
-    }
-    emptyEl.hidden = true;
-    var chain = Promise.resolve();
-    files.forEach(function (name) {
-      chain = chain.then(function () {
-        var url = assetUrl(name);
-        var cap = captionsByFile && captionsByFile[name];
-        return loadImage(url).then(function (img) {
-          var hex = averageColor(img);
-          gridEl.appendChild(swatchEl(url, name, hex, false, cap));
-        }).catch(function () {
-          gridEl.appendChild(swatchEl(url, name, null, true, cap));
+      function cssVarFromStem(stem) {
+        var slug = stem.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        return '--color-' + slug;
+      }
+
+      function averageColor(img) {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        var w = 48, h = 48;
+        canvas.width = w;
+        canvas.height = h;
+        try {
+          ctx.drawImage(img, 0, 0, w, h);
+        } catch (e) {
+          return null;
+        }
+        var data = ctx.getImageData(0, 0, w, h).data;
+        var r = 0, g = 0, b = 0, n = 0;
+        for (var i = 0; i < data.length; i += 4) {
+          var a = data[i + 3];
+          if (a < 8) continue;
+          r += data[i];
+          g += data[i + 1];
+          b += data[i + 2];
+          n++;
+        }
+        if (!n) return null;
+        r = Math.round(r / n);
+        g = Math.round(g / n);
+        b = Math.round(b / n);
+        return '#' + [r, g, b].map(function (x) {
+          return x.toString(16).padStart(2, '0');
+        }).join('');
+      }
+
+      function swatchEl(url, stem, hex, missing, caption) {
+        var varName = cssVarFromStem(fileStem(stem));
+        var label = labelFromStem(fileStem(stem));
+        var wrap = document.createElement('div');
+        wrap.className = 'swatch' + (missing ? ' missing' : '');
+        if (!missing && hex) {
+          document.documentElement.style.setProperty(varName, hex);
+        }
+
+        var bar = document.createElement('div');
+        bar.className = 'swatch-bar';
+
+        var colorDiv = document.createElement('div');
+        colorDiv.className = 'swatch-color';
+        if (missing) {
+          /* striped via CSS .missing .swatch-color */
+        } else if (hex) {
+          colorDiv.style.background = hex;
+        } else {
+          colorDiv.classList.add('swatch-thumb');
+          colorDiv.style.backgroundImage = 'url("' + url.replace(/"/g, '\\"') + '")';
+        }
+        bar.appendChild(colorDiv);
+
+        if (url) {
+          if (!missing) {
+            var ref = document.createElement('img');
+            ref.className = 'swatch-ref';
+            ref.src = url;
+            ref.alt = 'Source: ' + fileStem(stem).replace(/-/g, ' ');
+            ref.loading = 'lazy';
+            bar.appendChild(ref);
+          } else {
+            var ph = document.createElement('div');
+            ph.className = 'swatch-ref swatch-ref--missing';
+            ph.title = 'Asset missing';
+            bar.appendChild(ph);
+          }
+        }
+
+        wrap.appendChild(bar);
+
+        var meta = document.createElement('div');
+        meta.className = 'swatch-meta';
+        var code = document.createElement('code');
+        code.textContent = missing ? '(missing) ' + fileStem(stem) : varName + ' · ' + hex;
+        var span = document.createElement('span');
+        span.textContent = missing ? fileStem(stem) : (caption || label);
+        meta.appendChild(code);
+        meta.appendChild(span);
+        wrap.appendChild(meta);
+        return wrap;
+      }
+
+      function loadImage(url) {
+        return new Promise(function (resolve, reject) {
+          var img = new Image();
+          img.onload = function () { resolve(img); };
+          img.onerror = function () { reject(new Error('load')); };
+          img.src = url;
         });
-      });
-    });
-    return chain;
-  }
+      }
 
-  var ACCESSORY_CAPTIONS = {
-    'artisti-graded-blue-bg.jpg': 'Hero / atmosphere · graded blue wash',
-    'artisti-darker-bg_black-text.jpg': 'Dark UI · teal + black type',
-    'artisti-archivio-old-paper.png': 'Archive · warm old paper',
-    'artisti-pink.jpg': 'Soft lilac accent',
-    'artisti-red-extra-color.jpg': 'Urgent / CTA red'
-  };
+      function renderGroup(files, gridEl, emptyEl, captionsByFile) {
+        if (!files || !files.length) {
+          if (gridEl.children.length === 0) emptyEl.hidden = false;
+          return Promise.resolve();
+        }
+        emptyEl.hidden = true;
+        var chain = Promise.resolve();
+        files.forEach(function (name) {
+          chain = chain.then(function () {
+            var url = assetUrl(name);
+            var cap = captionsByFile && captionsByFile[name];
+            return loadImage(url).then(function (img) {
+              var hex = averageColor(img);
+              gridEl.appendChild(swatchEl(url, name, hex, false, cap));
+            }).catch(function () {
+              gridEl.appendChild(swatchEl(url, name, null, true, cap));
+            });
+          });
+        });
+        return chain;
+      }
 
-  fetch(assetUrl('manifest.json'))
-    .then(function (r) {
-      if (!r.ok) throw new Error('manifest');
-      return r.json();
-    })
-    .then(function (data) {
-      var brand = data.brand || [];
-      var accessory = data.accessory || [];
-      return renderGroup(brand, document.getElementById('brand-grid'), document.getElementById('brand-empty')).then(function () {
-        return renderGroup(accessory, document.getElementById('accessory-grid'), document.getElementById('accessory-empty'), ACCESSORY_CAPTIONS);
-      });
-    })
-    .catch(function () {
-      document.getElementById('brand-empty').hidden = false;
-      document.getElementById('brand-empty').textContent = 'Could not load assets/manifest.json. Ensure it exists and GitHub Pages has finished deploying.';
-      document.getElementById('accessory-empty').hidden = true;
-    });
-})();
+      var ACCESSORY_CAPTIONS = {
+        'artisti-graded-blue-bg.jpg': 'Hero / atmosphere · graded blue wash',
+        'artisti-darker-bg_black-text.jpg': 'Dark UI · teal + black type',
+        'artisti-archivio-old-paper.png': 'Archive · warm old paper',
+        'artisti-pink.jpg': 'Soft lilac accent',
+        'artisti-red-extra-color.jpg': 'Urgent / CTA red'
+      };
+
+      fetch(assetUrl('manifest.json'))
+        .then(function (r) {
+          if (!r.ok) throw new Error('manifest');
+          return r.json();
+        })
+        .then(function (data) {
+          var brand = data.brand || [];
+          var accessory = data.accessory || [];
+          return renderGroup(brand, document.getElementById('brand-grid'), document.getElementById('brand-empty')).then(function () {
+            return renderGroup(accessory, document.getElementById('accessory-grid'), document.getElementById('accessory-empty'), ACCESSORY_CAPTIONS);
+          });
+        })
+        .catch(function () {
+          document.getElementById('brand-empty').hidden = false;
+          document.getElementById('brand-empty').textContent = 'Could not load assets/manifest.json. Ensure it exists and GitHub Pages has finished deploying.';
+          document.getElementById('accessory-empty').hidden = true;
+        });
+    })();
   </script>
 </body>
+
 </html>
