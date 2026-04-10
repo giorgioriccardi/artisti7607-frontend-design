@@ -144,6 +144,25 @@
       gap: 0.75rem;
     }
 
+    /* Semantic: 4 columns — row 1 solid, row 2 -soft */
+    .semantic-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 900px) {
+      .semantic-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .semantic-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .swatch {
       border-radius: 6px;
       overflow: hidden;
@@ -313,13 +332,25 @@
 
     <section aria-labelledby="semantic-heading">
       <h2 id="semantic-heading">Semantic (static)</h2>
-      <p class="hint" style="margin-bottom:1rem"><strong>Success</strong> / <strong>warning</strong> are vivid but still
-        on-axis: saturated blue-teal and coral-orange. <strong>Error</strong> / <strong>info</strong> unchanged. Each
-        pair is <code>solid</code> + <code>-soft</code> for surfaces.</p>
-      <div class="swatch-grid">
+      <p class="hint" style="margin-bottom:1rem"><strong>Grid:</strong> first row = main tokens (success, warning,
+        error, info); second row = matching <code>-soft</code> fills. <strong>Success</strong> / <strong>warning</strong>
+        stay vivid on-axis; <strong>error</strong> / <strong>info</strong> unchanged.</p>
+      <div class="semantic-grid">
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-success)"></div>
           <div class="swatch-meta"><code>success</code><span>Vivid blue-teal · #0db39c</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-warning)"></div>
+          <div class="swatch-meta"><code>warning</code><span>Vivid coral-orange · #ff6b35</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-error)"></div>
+          <div class="swatch-meta"><code>error</code><span>Brand red hue, UI vivid</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-info)"></div>
+          <div class="swatch-meta"><code>info</code><span>Lifted cyan-blue · graded blue family</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color"
@@ -327,26 +358,14 @@
           <div class="swatch-meta"><code>success-soft</code><span>Alert / chip fill</span></div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-warning)"></div>
-          <div class="swatch-meta"><code>warning</code><span>Vivid coral-orange · #ff6b35</span></div>
-        </div>
-        <div class="swatch">
           <div class="swatch-color"
             style="background: var(--color-warning-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>warning-soft</code><span>Alert / chip fill</span></div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-error)"></div>
-          <div class="swatch-meta"><code>error</code><span>Brand red hue, UI vivid</span></div>
-        </div>
-        <div class="swatch">
           <div class="swatch-color"
             style="background: var(--color-error-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>error-soft</code><span>Alert / chip fill</span></div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-info)"></div>
-          <div class="swatch-meta"><code>info</code><span>Lifted cyan-blue · graded blue family</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color"
