@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux / editors
+*~
+*.swp
+*.swo
+*.tmp
+*.temp
+*.log
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-*
+
+# Environment & secrets (if ever added)
+.env
+.env.*
+!.env.example
+
+# Optional local tooling
+node_modules/
+.cache/
