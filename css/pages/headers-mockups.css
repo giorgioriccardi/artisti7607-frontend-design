@@ -1,5 +1,5 @@
 /*
-  Layout mockups page (mockups.html).
+  Headers mockups page (headers-mockups.html).
   Blocks 1–3 use css/core/site.css (brand: 0 border-radius).
   Blocks 4–6 (alternates) use --radius-future for a documented 2px option.
 */
@@ -51,8 +51,8 @@ main {
   padding: 0 1.5rem 2.5rem;
 }
 
-.page-mockups #site-header .header-row,
-.page-mockups footer.page-foot {
+.page-headers-mockups #site-header .header-row,
+.page-headers-mockups footer.page-foot {
   max-width: 72rem;
 }
 

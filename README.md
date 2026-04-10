@@ -5,10 +5,13 @@ Public **design microsite** (GitHub Pages): [giorgioriccardi.github.io/artisti76
 | Page | Path |
 |------|------|
 | Brand / palette | [`index.html`](index.html) |
-| Header & footer mockups (6 scenarios) | [`mockups.html`](mockups.html) |
+| Headers mockups (6 scenarios) | [`headers-mockups.html`](headers-mockups.html) |
+| Home page mockups (3 ideas) | [`home-page-mockups.html`](home-page-mockups.html) |
 | Rebuild / IA notes | [`docs/rebuild-notes.html`](docs/rebuild-notes.html) |
 
-**Static assets:** `css/core/site.css` (shared chrome), `css/pages/palette.css` / `mockups.css` (per page), `js/pages/palette.js` (swatch page behavior).
+**Static assets:** `css/core/site.css` (shared chrome), `css/pages/palette.css`, `headers-mockups.css`, `home-mockups.css` (per page), `js/pages/palette.js` (swatch page behavior).
+
+Legacy URL [`mockups.html`](mockups.html) redirects to headers mockups.
 
 **Roadmap and checklists** live in the main application repo README so they show on the org project page:
 
