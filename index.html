@@ -35,6 +35,11 @@
       --color-neutral-200: #c8d4de;
       --color-neutral-50: #f0f4f8;
 
+      /* Whites / off-whites (after neutral-50 in the ramp) */
+      --color-white: #ffffff;
+      --color-white-mist: #f5f7fa;
+      --color-white-shell: #faf7f2;
+
       /*
         Semantic — brand-adjacent but more vivid for UI:
         success = saturated blue-teal (still cool / graded-blue family, not muddy)
@@ -151,13 +156,14 @@
       gap: 0.75rem;
     }
 
-    @media (max-width: 900px) {
+    /* Keep four columns on typical tablets; stack only on narrow viewports */
+    @media (max-width: 720px) {
       .semantic-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 420px) {
+    @media (max-width: 380px) {
       .semantic-grid {
         grid-template-columns: 1fr;
       }
@@ -167,6 +173,48 @@
       border-radius: 6px;
       overflow: hidden;
       border: 1px solid var(--color-neutral-200);
+    }
+
+    /* Brand / Accessory / Neutrals: six colors, three per row (2×3) */
+    .palette-six {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 0.65rem;
+    }
+
+    @media (max-width: 640px) {
+      .palette-six {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .palette-six__item {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--color-neutral-200);
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+    }
+
+    .palette-six__chip {
+      height: 4rem;
+      min-height: 4rem;
+      flex-shrink: 0;
+    }
+
+    .palette-six__chip--outline {
+      box-shadow: inset 0 0 0 1px var(--color-neutral-200);
+    }
+
+    .palette-six__item .swatch-meta {
+      flex: 1;
+    }
+
+    .palette-six__item .swatch-bar {
+      height: 4rem;
+      min-height: 4rem;
     }
 
     .swatch-bar {
@@ -222,7 +270,56 @@
       color: var(--color-neutral-500);
     }
 
+    /* WCAG-oriented notes; text ≥4.5:1 on #f8fafc (neutral-700 body) */
+    .swatch-a11y {
+      padding: 0.45rem 0.65rem 0.5rem;
+      font-size: 0.6875rem;
+      line-height: 1.4;
+      color: var(--color-neutral-700);
+      background: #f8fafc;
+      border-top: 1px solid var(--color-neutral-200);
+    }
+
+    .swatch-a11y-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.15rem 0.5rem;
+    }
+
+    .swatch-a11y-row+.swatch-a11y-row {
+      margin-top: 0.35rem;
+      padding-top: 0.35rem;
+      border-top: 1px dashed var(--color-neutral-200);
+    }
+
+    .swatch-a11y-topic {
+      color: var(--color-neutral-700);
+      font-weight: 600;
+      max-width: 58%;
+    }
+
+    .swatch-a11y-eval {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .swatch-a11y-verdict {
+      font-weight: 700;
+      color: var(--color-neutral-900);
+    }
+
+    .swatch-a11y-grade {
+      font-weight: 700;
+      color: var(--color-neutral-900);
+    }
+
     .swatch.missing .swatch-color {
+      background: repeating-linear-gradient(-45deg, #eee, #eee 6px, #ddd 6px, #ddd 12px);
+    }
+
+    .swatch.missing .palette-six__chip {
       background: repeating-linear-gradient(-45deg, #eee, #eee 6px, #ddd 6px, #ddd 12px);
     }
 
@@ -254,15 +351,12 @@
     <section aria-labelledby="brand-assets-heading">
       <h2 id="brand-assets-heading">Brand (from assets)</h2>
       <p class="hint" style="margin-bottom:0.75rem">
-        Each tile: <strong>left</strong> = sampled color, <strong>right</strong> = the source file in
-        <code>assets/</code> (banner / artwork clients recognize).
+        <strong>Six colors</strong> in a 2×3 grid (three per row). Every cell shows the sampled chip
+        <strong>and</strong> the same brand chart thumbnail (<code>artisti-all-brand-colors.jpg</code>). Last cell:
+        <strong>pure white</strong> (<code>#ffffff</code>).
       </p>
-      <p id="brand-empty" class="hint" hidden>
-        No brand files listed. Add images under <code>assets/</code> and their names to
-        <code>assets/manifest.json</code> → <code>brand</code>. See <code>assets/README.md</code>.
-      </p>
-      <div id="brand-grid" class="swatch-grid" aria-live="polite">
-        <div class="swatch">
+      <div id="brand-palette" class="palette-six" aria-label="Brand palette, six colors">
+        <div class="palette-six__item swatch">
           <div class="swatch-bar">
             <div class="swatch-color" style="background: var(--color-brand-prime-blue)"></div>
             <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart"
@@ -270,10 +364,20 @@
           </div>
           <div class="swatch-meta">
             <code>--color-brand-prime-blue · #01a7e1</code>
-            <span>Brand chart</span>
+            <span>Brand chart · prime blue</span>
+          </div>
+          <div class="swatch-a11y" title="White on #01a7e1 ≈2.8:1 — fails WCAG AA for normal text. Dark text on this fill passes.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">White text on this blue</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">3/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
           </div>
         </div>
-        <div class="swatch">
+        <div class="palette-six__item swatch">
           <div class="swatch-bar">
             <div class="swatch-color" style="background: var(--color-brand-prime-navy)"></div>
             <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart"
@@ -281,7 +385,90 @@
           </div>
           <div class="swatch-meta">
             <code>--color-brand-prime-navy · #3b4352</code>
-            <span>Brand chart</span>
+            <span>Brand chart · prime navy</span>
+          </div>
+          <div class="swatch-a11y" title="White on navy ≈8.5:1 — AA body OK.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">White text on this navy</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="palette-six__item swatch">
+          <div class="swatch-bar">
+            <div class="swatch-color" style="background: var(--color-neutral-900)"></div>
+            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart"
+              width="84" height="72" loading="lazy" />
+          </div>
+          <div class="swatch-meta"><code>neutral-900</code><span>Text strong (with brand)</span></div>
+          <div class="swatch-a11y" title="Strong body text on light backgrounds — passes AA.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Using this color for headings &amp; main text</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="palette-six__item swatch">
+          <div class="swatch-bar">
+            <div class="swatch-color" style="background: var(--color-neutral-700)"></div>
+            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart"
+              width="84" height="72" loading="lazy" />
+          </div>
+          <div class="swatch-meta"><code>neutral-700</code><span>Text body</span></div>
+          <div class="swatch-a11y" title="Body text on white — ~8.5:1, passes AA.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Using this color for paragraphs &amp; UI labels</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="palette-six__item swatch">
+          <div class="swatch-bar">
+            <div class="swatch-color"
+              style="background: var(--color-neutral-50); box-shadow: inset 0 0 0 1px var(--color-neutral-200)"></div>
+            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart"
+              width="84" height="72" loading="lazy" />
+          </div>
+          <div class="swatch-meta"><code>neutral-50</code><span>Page / panel bg</span></div>
+          <div class="swatch-a11y" title="Page bg: use neutral-900/700 for body text — passes.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Everyday text on this soft gray background</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="palette-six__item swatch">
+          <div class="swatch-bar">
+            <div class="swatch-color palette-six__chip--outline" style="background: var(--color-white)"></div>
+            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart"
+              width="84" height="72" loading="lazy" />
+          </div>
+          <div class="swatch-meta"><code>white · #ffffff</code><span>Pure white · Brand section</span></div>
+          <div class="swatch-a11y" title="Dark body text on white — strong contrast.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Dark text on this white surface</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
           </div>
         </div>
       </div>
@@ -290,87 +477,232 @@
     <section aria-labelledby="accessory-assets-heading">
       <h2 id="accessory-assets-heading">Accessory (from assets)</h2>
       <p class="hint" style="margin-bottom:0.75rem">
-        Same layout as brand: color chip + <strong>reference thumbnail</strong>. Supporting surfaces and accents:
-        <strong>graded blue</strong> (hero wash), <strong>dark teal</strong> (chrome / black type), <strong>archive
-          paper</strong> (warm document feel), <strong>pink</strong> (soft highlight), <strong>red</strong> (urgent /
-        CTA). Order follows <code>manifest.json</code>.
+        <strong>Six colors</strong> in a 2×3 grid: the first five are sampled from <code>manifest.json</code> accessory
+        images (order preserved); the sixth is <strong>white-shell</strong> (<code>#faf7f2</code>). Thumbnails sit beside
+        each sampled chip.
       </p>
       <p id="accessory-empty" class="hint" hidden>
         No accessory files listed. Add filenames to <code>manifest.json</code> → <code>accessory</code>.
       </p>
-      <div id="accessory-grid" class="swatch-grid" aria-live="polite"></div>
+      <div id="accessory-palette" class="palette-six" aria-live="polite" aria-label="Accessory palette, six colors"></div>
     </section>
 
     <section aria-labelledby="neutral-heading">
       <h2 id="neutral-heading">Neutrals (static)</h2>
-      <p class="hint" style="margin-bottom:1rem">Cool slate neutrals to sit with the blue-forward brand assets; tweak in
-        <code>:root</code> if Blocksy tokens differ.</p>
-      <div class="swatch-grid">
-        <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-neutral-900)"></div>
+      <p class="hint" style="margin-bottom:1rem">
+        <strong>Six colors</strong> in a 2×3 grid: the neutral ladder <code>900 → 50</code>; the last cell is
+        <strong>white-mist</strong> (<code>#f5f7fa</code>). Tweak in <code>:root</code> if Blocksy tokens differ.
+      </p>
+      <div id="neutral-palette" class="palette-six" aria-label="Neutral palette, six colors">
+        <div class="palette-six__item swatch">
+          <div class="palette-six__chip" style="background: var(--color-neutral-900)"></div>
           <div class="swatch-meta"><code>neutral-900</code><span>Text strong</span></div>
+          <div class="swatch-a11y" title="Strong body text on light backgrounds — passes AA.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Using this color for headings &amp; main text</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
         </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-neutral-700)"></div>
+        <div class="palette-six__item swatch">
+          <div class="palette-six__chip" style="background: var(--color-neutral-700)"></div>
           <div class="swatch-meta"><code>neutral-700</code><span>Text body</span></div>
+          <div class="swatch-a11y" title="Body text on white — ~8.5:1, passes AA.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Using this color for paragraphs &amp; UI labels</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
         </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-neutral-500)"></div>
+        <div class="palette-six__item swatch">
+          <div class="palette-six__chip" style="background: var(--color-neutral-500)"></div>
           <div class="swatch-meta"><code>neutral-500</code><span>Muted</span></div>
+          <div class="swatch-a11y" title="As 12px caption on white ~4.15:1 — fails AA body.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Small gray text on a white background</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
         </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background: var(--color-neutral-200)"></div>
+        <div class="palette-six__item swatch">
+          <div class="palette-six__chip" style="background: var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>neutral-200</code><span>Borders</span></div>
+          <div class="swatch-a11y" title="1px border vs white ~1.5:1 — weak non-text contrast.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Seeing borders &amp; dividers on white</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Low</span> · <span class="swatch-a11y-grade">5/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
         </div>
-        <div class="swatch">
-          <div class="swatch-color"
-            style="background: var(--color-neutral-50); border-bottom: 1px solid var(--color-neutral-200)"></div>
+        <div class="palette-six__item swatch">
+          <div class="palette-six__chip"
+            style="background: var(--color-neutral-50); box-shadow: inset 0 0 0 1px var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>neutral-50</code><span>Page bg</span></div>
+          <div class="swatch-a11y" title="Page bg: use neutral-900/700 for body text — passes.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Everyday text on this soft gray background</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="palette-six__item swatch">
+          <div class="palette-six__chip palette-six__chip--outline" style="background: var(--color-white-mist)"></div>
+          <div class="swatch-meta"><code>white-mist · #f5f7fa</code><span>Cool off-white · Neutrals section</span></div>
+          <div class="swatch-a11y" title="Slightly cool off-white; dark text still reads clearly.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Dark text on this cool off-white</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section aria-labelledby="semantic-heading">
       <h2 id="semantic-heading">Semantic (static)</h2>
-      <p class="hint" style="margin-bottom:1rem"><strong>Grid:</strong> first row = main tokens (success, warning,
-        error, info); second row = matching <code>-soft</code> fills. <strong>Success</strong> / <strong>warning</strong>
-        stay vivid on-axis; <strong>error</strong> / <strong>info</strong> unchanged.</p>
+      <p class="hint" style="margin-bottom:1rem"><strong>Layout:</strong> <strong>four columns</strong>, two rows — row 1 =
+        success, warning, error, info; row 2 = matching <code>-soft</code> fills. <strong>A11y</strong> rows rate light vs
+        dark text on each fill plus the gray helper line.</p>
       <div class="semantic-grid">
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-success)"></div>
           <div class="swatch-meta"><code>success</code><span>Vivid blue-teal · #00a589</span></div>
+          <div class="swatch-a11y" title="White on fill ~3.1:1 — fails AA body. Prefer dark text/icons on this fill.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">White text on this color</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-warning)"></div>
           <div class="swatch-meta"><code>warning</code><span>Vivid coral-orange · #ff6b35</span></div>
+          <div class="swatch-a11y" title="White on fill ~2.8:1 — fails AA. Use dark text or stronger fill for small type.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">White text on this color</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">3/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-error)"></div>
           <div class="swatch-meta"><code>error</code><span>Brand red hue, UI vivid</span></div>
+          <div class="swatch-a11y" title="White on fill ~5:1 — passes AA for normal body text.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">White text on this color</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-info)"></div>
           <div class="swatch-meta"><code>info</code><span>Lifted cyan-blue · graded blue family</span></div>
+          <div class="swatch-a11y" title="White on fill ~3.7:1 — fails AA body. Prefer dark text on solid info.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">White text on this color</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
         </div>
         <div class="swatch">
           <div class="swatch-color"
             style="background: var(--color-success-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>success-soft</code><span>Alert / chip fill</span></div>
+          <div class="swatch-a11y" title="neutral-700 on soft fill ~7.4:1 — AA OK for labels.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Dark text on this color</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
         </div>
         <div class="swatch">
           <div class="swatch-color"
             style="background: var(--color-warning-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>warning-soft</code><span>Alert / chip fill</span></div>
+          <div class="swatch-a11y" title="neutral-700 on fill ~6:1 — AA OK.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Dark text on this color</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">7/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
         </div>
         <div class="swatch">
           <div class="swatch-color"
             style="background: var(--color-error-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>error-soft</code><span>Alert / chip fill</span></div>
+          <div class="swatch-a11y" title="neutral-700 on fill ~7.2:1 — AA OK.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Dark text on this color</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
         </div>
         <div class="swatch">
           <div class="swatch-color"
             style="background: var(--color-info-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>info-soft</code><span>Alert / chip fill</span></div>
+          <div class="swatch-a11y" title="neutral-700 on fill ~7.3:1 — AA OK.">
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Dark text on this color</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
+            </div>
+            <div class="swatch-a11y-row">
+              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
+              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -407,6 +739,97 @@
         return '--color-' + slug;
       }
 
+      function parseHex(hex) {
+        if (!hex || typeof hex !== 'string') return null;
+        var m = hex.trim().match(/^#?([0-9a-f]{6})$/i);
+        return m ? ('#' + m[1].toLowerCase()) : null;
+      }
+
+      function linChannel(c) {
+        c = c / 255;
+        return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+      }
+
+      function luminanceHex(hex) {
+        var h = parseHex(hex);
+        if (!h) return 0;
+        h = h.slice(1);
+        var r = parseInt(h.slice(0, 2), 16), g = parseInt(h.slice(2, 4), 16), b = parseInt(h.slice(4, 6), 16);
+        return 0.2126 * linChannel(r) + 0.7152 * linChannel(g) + 0.0722 * linChannel(b);
+      }
+
+      function contrastRatioHex(a, b) {
+        var L1 = luminanceHex(a), L2 = luminanceHex(b);
+        var hi = Math.max(L1, L2), lo = Math.min(L1, L2);
+        return (hi + 0.05) / (lo + 0.05);
+      }
+
+      function fillA11yFromHex(hex) {
+        if (!parseHex(hex)) {
+          return {
+            topic: 'Text on this background color',
+            verdict: 'Unknown',
+            grade: '—/10',
+            title: 'No color sample — contrast not computed.'
+          };
+        }
+        var dark = '#1e2d3a';
+        var light = '#ffffff';
+        var cw = contrastRatioHex(light, hex);
+        var cd = contrastRatioHex(dark, hex);
+        var title = 'Contrast: white text ' + cw.toFixed(2) + ':1, dark text ' + cd.toFixed(2) + ':1 (AA needs 4.5:1 for normal-sized type).';
+        if (cw >= 4.5) {
+          title += ' White lettering on this color passes AA.';
+          return { topic: 'White text on this color', verdict: 'Good', grade: '8/10', title: title };
+        }
+        if (cd >= 4.5) {
+          title += ' Dark lettering on this color passes AA.';
+          return { topic: 'Dark text on this color', verdict: 'Good', grade: '8/10', title: title };
+        }
+        if (cw >= 3 || cd >= 3) {
+          return { topic: 'Text on this background color', verdict: 'Large text only', grade: '5/10', title: title };
+        }
+        return { topic: 'Text on this background color', verdict: 'Below AA', grade: '3/10', title: title };
+      }
+
+      function buildSwatchA11y(hex, missing) {
+        var box = document.createElement('div');
+        box.className = 'swatch-a11y';
+        var row1 = document.createElement('div');
+        row1.className = 'swatch-a11y-row';
+        var t1 = document.createElement('span');
+        t1.className = 'swatch-a11y-topic';
+        var e1 = document.createElement('span');
+        e1.className = 'swatch-a11y-eval';
+        if (missing) {
+          box.title = 'Image missing — no color sample.';
+          t1.textContent = 'Color from image (not available)';
+          e1.innerHTML = '<span class="swatch-a11y-verdict">Incomplete</span> · <span class="swatch-a11y-grade">—/10</span>';
+        } else {
+          var fa = fillA11yFromHex(hex);
+          box.title = fa.title;
+          t1.textContent = fa.topic;
+          e1.innerHTML = '<span class="swatch-a11y-verdict">' + fa.verdict + '</span> · <span class="swatch-a11y-grade">' + fa.grade + '</span>';
+        }
+        row1.appendChild(t1);
+        row1.appendChild(e1);
+        box.appendChild(row1);
+
+        var row2 = document.createElement('div');
+        row2.className = 'swatch-a11y-row';
+        row2.title = 'The small gray line uses neutral-500 at 12px (~4.15:1 on white).';
+        var t2 = document.createElement('span');
+        t2.className = 'swatch-a11y-topic';
+        t2.textContent = 'Gray helper text under the tile';
+        var e2 = document.createElement('span');
+        e2.className = 'swatch-a11y-eval';
+        e2.innerHTML = '<span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span>';
+        row2.appendChild(t2);
+        row2.appendChild(e2);
+        box.appendChild(row2);
+        return box;
+      }
+
       function averageColor(img) {
         var canvas = document.createElement('canvas');
         var ctx = canvas.getContext('2d');
@@ -437,11 +860,11 @@
         }).join('');
       }
 
-      function swatchEl(url, stem, hex, missing, caption) {
+      function accessoryPaletteCell(url, stem, hex, missing, caption) {
         var varName = cssVarFromStem(fileStem(stem));
         var label = labelFromStem(fileStem(stem));
         var wrap = document.createElement('div');
-        wrap.className = 'swatch' + (missing ? ' missing' : '');
+        wrap.className = 'palette-six__item swatch' + (missing ? ' missing' : '');
         if (!missing && hex) {
           document.documentElement.style.setProperty(varName, hex);
         }
@@ -488,7 +911,83 @@
         meta.appendChild(code);
         meta.appendChild(span);
         wrap.appendChild(meta);
+        wrap.appendChild(buildSwatchA11y(hex, missing));
         return wrap;
+      }
+
+      function accessoryPlaceholderCell() {
+        var wrap = document.createElement('div');
+        wrap.className = 'palette-six__item swatch missing';
+        var chip = document.createElement('div');
+        chip.className = 'palette-six__chip';
+        wrap.appendChild(chip);
+        var meta = document.createElement('div');
+        meta.className = 'swatch-meta';
+        var code = document.createElement('code');
+        code.textContent = '(empty slot)';
+        var span = document.createElement('span');
+        span.textContent = 'Add another accessory in manifest';
+        meta.appendChild(code);
+        meta.appendChild(span);
+        wrap.appendChild(meta);
+        wrap.appendChild(buildSwatchA11y(null, true));
+        return wrap;
+      }
+
+      function accessoryShellCell() {
+        var wrap = document.createElement('div');
+        wrap.className = 'palette-six__item swatch';
+        var chip = document.createElement('div');
+        chip.className = 'palette-six__chip palette-six__chip--outline';
+        chip.style.background = 'var(--color-white-shell)';
+        wrap.appendChild(chip);
+        var meta = document.createElement('div');
+        meta.className = 'swatch-meta';
+        var code = document.createElement('code');
+        code.textContent = 'white-shell · #faf7f2';
+        var span = document.createElement('span');
+        span.textContent = 'Warm off-white · Accessory section';
+        meta.appendChild(code);
+        meta.appendChild(span);
+        wrap.appendChild(meta);
+        wrap.appendChild(buildSwatchA11y('#faf7f2', false));
+        return wrap;
+      }
+
+      function renderAccessorySix(files, container, emptyEl, captionsByFile) {
+        container.innerHTML = '';
+        if (!files || !files.length) {
+          emptyEl.hidden = false;
+          return Promise.resolve();
+        }
+        emptyEl.hidden = true;
+        var chain = Promise.resolve();
+        var row = [];
+        for (var i = 0; i < 5; i++) {
+          (function (idx) {
+            chain = chain.then(function () {
+              if (idx >= files.length) {
+                row[idx] = accessoryPlaceholderCell();
+                return Promise.resolve();
+              }
+              var name = files[idx];
+              var url = assetUrl(name);
+              var cap = captionsByFile && captionsByFile[name];
+              return loadImage(url).then(function (img) {
+                var hex = averageColor(img);
+                row[idx] = accessoryPaletteCell(url, name, hex, false, cap);
+              }).catch(function () {
+                row[idx] = accessoryPaletteCell(url, name, null, true, cap);
+              });
+            });
+          })(i);
+        }
+        return chain.then(function () {
+          for (var j = 0; j < 5; j++) {
+            container.appendChild(row[j]);
+          }
+          container.appendChild(accessoryShellCell());
+        });
       }
 
       function loadImage(url) {
@@ -498,28 +997,6 @@
           img.onerror = function () { reject(new Error('load')); };
           img.src = url;
         });
-      }
-
-      function renderGroup(files, gridEl, emptyEl, captionsByFile) {
-        if (!files || !files.length) {
-          if (gridEl.children.length === 0) emptyEl.hidden = false;
-          return Promise.resolve();
-        }
-        emptyEl.hidden = true;
-        var chain = Promise.resolve();
-        files.forEach(function (name) {
-          chain = chain.then(function () {
-            var url = assetUrl(name);
-            var cap = captionsByFile && captionsByFile[name];
-            return loadImage(url).then(function (img) {
-              var hex = averageColor(img);
-              gridEl.appendChild(swatchEl(url, name, hex, false, cap));
-            }).catch(function () {
-              gridEl.appendChild(swatchEl(url, name, null, true, cap));
-            });
-          });
-        });
-        return chain;
       }
 
       var ACCESSORY_CAPTIONS = {
@@ -536,16 +1013,18 @@
           return r.json();
         })
         .then(function (data) {
-          var brand = data.brand || [];
           var accessory = data.accessory || [];
-          return renderGroup(brand, document.getElementById('brand-grid'), document.getElementById('brand-empty')).then(function () {
-            return renderGroup(accessory, document.getElementById('accessory-grid'), document.getElementById('accessory-empty'), ACCESSORY_CAPTIONS);
-          });
+          return renderAccessorySix(
+            accessory,
+            document.getElementById('accessory-palette'),
+            document.getElementById('accessory-empty'),
+            ACCESSORY_CAPTIONS
+          );
         })
         .catch(function () {
-          document.getElementById('brand-empty').hidden = false;
-          document.getElementById('brand-empty').textContent = 'Could not load assets/manifest.json. Ensure it exists and GitHub Pages has finished deploying.';
-          document.getElementById('accessory-empty').hidden = true;
+          var empty = document.getElementById('accessory-empty');
+          empty.hidden = false;
+          empty.textContent = 'Could not load assets/manifest.json. Ensure it exists and GitHub Pages has finished deploying.';
         });
     })();
   </script>
