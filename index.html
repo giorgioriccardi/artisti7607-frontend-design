@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Artisti 7607 — Frontend design (test)</title>
+  <style>
+    :root {
+      /* Brand — adjust when Blocksy/child theme tokens are finalized */
+      --color-primary: #1a365d;
+      --color-primary-light: #2c5282;
+      --color-accent: #c05621;
+      --color-accent-muted: #ed8936;
+
+      --color-neutral-900: #1a202c;
+      --color-neutral-700: #2d3748;
+      --color-neutral-500: #718096;
+      --color-neutral-200: #e2e8f0;
+      --color-neutral-50: #f7fafc;
+
+      --color-success: #276749;
+      --color-warning: #b7791f;
+      --color-error: #c53030;
+      --color-info: #2b6cb0;
+
+      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      color: var(--color-neutral-900);
+      background: var(--color-neutral-50);
+      line-height: 1.5;
+    }
+
+    header {
+      background: var(--color-primary);
+      color: #fff;
+      padding: 1.25rem 1.5rem;
+    }
+    header h1 { margin: 0 0 0.25rem; font-size: 1.25rem; }
+    header p { margin: 0; opacity: 0.9; font-size: 0.875rem; }
+
+    main { max-width: 56rem; margin: 0 auto; padding: 1.5rem; }
+
+    section {
+      background: #fff;
+      border: 1px solid var(--color-neutral-200);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    section h2 {
+      margin: 0 0 1rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-neutral-700);
+    }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
+    .swatch {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--color-neutral-200);
+    }
+    .swatch-color { height: 4rem; }
+    .swatch-meta {
+      padding: 0.5rem 0.65rem;
+      font-size: 0.75rem;
+      background: #fff;
+    }
+    .swatch-meta code { display: block; color: var(--color-neutral-700); }
+    .swatch-meta span { color: var(--color-neutral-500); }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: var(--color-neutral-500);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Artisti 7607 — frontend design</h1>
+    <p>Placeholder color scheme for GitHub Pages smoke test</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="brand-heading">
+      <h2 id="brand-heading">Brand</h2>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-primary)"></div>
+          <div class="swatch-meta">
+            <code>--color-primary</code>
+            <span>Primary</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-primary-light)"></div>
+          <div class="swatch-meta">
+            <code>--color-primary-light</code>
+            <span>Primary light</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-accent)"></div>
+          <div class="swatch-meta">
+            <code>--color-accent</code>
+            <span>Accent</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-accent-muted)"></div>
+          <div class="swatch-meta">
+            <code>--color-accent-muted</code>
+            <span>Accent muted</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="neutral-heading">
+      <h2 id="neutral-heading">Neutrals</h2>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-neutral-900)"></div>
+          <div class="swatch-meta"><code>900</code><span>Text strong</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-neutral-700)"></div>
+          <div class="swatch-meta"><code>700</code><span>Text body</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-neutral-500)"></div>
+          <div class="swatch-meta"><code>500</code><span>Muted</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-neutral-200)"></div>
+          <div class="swatch-meta"><code>200</code><span>Borders</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-neutral-50); border-bottom: 1px solid var(--color-neutral-200)"></div>
+          <div class="swatch-meta"><code>50</code><span>Page bg</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="semantic-heading">
+      <h2 id="semantic-heading">Semantic</h2>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-success)"></div>
+          <div class="swatch-meta"><code>success</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-warning)"></div>
+          <div class="swatch-meta"><code>warning</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-error)"></div>
+          <div class="swatch-meta"><code>error</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-info)"></div>
+          <div class="swatch-meta"><code>info</code></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Static test for <strong>giorgioriccardi.github.io/artisti7607-frontend-design/</strong>
+  </footer>
+</body>
+</html>
