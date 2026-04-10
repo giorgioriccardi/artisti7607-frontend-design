@@ -6,21 +6,24 @@
    - **`brand`**: core brand colors (header uses the first one that loads successfully).
    - **`accessory`**: supporting / decorative colors.
 
-Example `manifest.json` after adding files:
+Current `manifest.json` (checked in to match repo assets):
 
 ```json
 {
   "brand": [
-    "brand-primary.png",
-    "brand-secondary.png",
-    "brand-accent-warm.png"
+    "artisti-brand-logo.png",
+    "artisti-logo-darker-bg.jpg",
+    "artisti-all-brand-colors.jpg"
   ],
   "accessory": [
-    "accessory-paper-cream.png",
-    "accessory-metallic-bronze.png"
+    "artisti-graded-blue-bg.jpg",
+    "artisti-red-extra-color.jpg"
   ]
 }
 ```
+
+- **Brand** — logo, logo on dark background, full brand-color reference sheet.  
+- **Accessory** — graded blue environment / backgrounds, extra red accent.
 
 Paths are **relative to this folder** (filenames only, no `assets/` prefix).
 

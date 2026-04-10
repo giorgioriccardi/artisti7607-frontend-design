@@ -6,22 +6,26 @@
   <title>Artisti 7607 — Frontend design</title>
   <style>
     :root {
-      /* Fallbacks until assets load (or if manifest is empty) */
-      --color-primary: #1a365d;
-      --color-primary-light: #2c5282;
-      --color-accent: #c05621;
-      --color-accent-muted: #ed8936;
+      /*
+        Static fallbacks aligned to assets/ (64×64 average sample, Pillow):
+        logo #3a5365, darker-bg #67869e, all-brand-colors #95bcce,
+        graded-blue #216f98, red-extra #cc1514
+      */
+      --color-primary: #3a5365;
+      --color-primary-light: #67869e;
+      --color-accent: #cc1514;
+      --color-accent-muted: #95bcce;
 
-      --color-neutral-900: #1a202c;
-      --color-neutral-700: #2d3748;
-      --color-neutral-500: #718096;
-      --color-neutral-200: #e2e8f0;
-      --color-neutral-50: #f7fafc;
+      --color-neutral-900: #1e2d3a;
+      --color-neutral-700: #3d4f5f;
+      --color-neutral-500: #6b7f90;
+      --color-neutral-200: #c8d4de;
+      --color-neutral-50: #f0f4f8;
 
-      --color-success: #276749;
-      --color-warning: #b7791f;
-      --color-error: #c53030;
-      --color-info: #2b6cb0;
+      --color-success: #2d6b4f;
+      --color-warning: #b45309;
+      --color-error: #cc1514;
+      --color-info: #216f98;
 
       --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     }
@@ -126,7 +130,7 @@
 
     <section aria-labelledby="neutral-heading">
       <h2 id="neutral-heading">Neutrals (static)</h2>
-      <p class="hint" style="margin-bottom:1rem">UI grays — adjust in <code>:root</code> when design tokens are finalized.</p>
+      <p class="hint" style="margin-bottom:1rem">Cool slate neutrals to sit with the blue-forward brand assets; tweak in <code>:root</code> if Blocksy tokens differ.</p>
       <div class="swatch-grid">
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-neutral-900)"></div>
@@ -153,6 +157,7 @@
 
     <section aria-labelledby="semantic-heading">
       <h2 id="semantic-heading">Semantic (static)</h2>
+      <p class="hint" style="margin-bottom:1rem"><strong>Error</strong> / <strong>info</strong> track the red and graded-blue accessory samples; success and warning are generic complements.</p>
       <div class="swatch-grid">
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-success)"></div>
