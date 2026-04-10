@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
   <style>
     :root {
       /*
@@ -331,6 +332,17 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Design microsite">
+    <div class="site-nav__inner">
+      <a class="site-nav__brand" href="index.html">Artisti 7607 · design</a>
+      <ul class="site-nav__list">
+        <li><a href="index.html" aria-current="page">Brand swatches</a></li>
+        <li><a href="mockups.html">Layout mockups</a></li>
+        <li><a href="docs/rebuild-notes.html">Rebuild notes</a></li>
+      </ul>
+    </div>
+  </nav>
   <header id="site-header">
     <div class="header-row">
       <img class="header-logo" src="assets/artisti-brand-logo.png" width="120" height="48" alt="Artisti 7607" />
@@ -341,7 +353,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <p class="hint" style="margin-bottom:1.25rem"><strong>Muted captions on this page:</strong> The smaller line under each
       token name uses <code>neutral-500</code> at 12px (~<strong>4.15:1</strong> on white). That is <strong>below WCAG AA</strong>
       for normal body-sized text—it’s a deliberate demo choice. For production UI, use <code>neutral-700</code> and/or

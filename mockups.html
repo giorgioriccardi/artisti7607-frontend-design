@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layout mockups — Artisti 7607 Frontend Brand 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: #fff;
+      color: var(--color-neutral-900);
+    }
+
+    #site-header {
+      padding: 1.25rem 1.25rem 0.5rem;
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+
+    .header-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .header-logo {
+      height: 3rem;
+      width: auto;
+    }
+
+    .header-copy h1 {
+      margin: 0 0 0.35rem;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-neutral-900);
+    }
+
+    .header-copy p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--color-neutral-700);
+    }
+
+    main {
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 0 1.25rem 2.5rem;
+    }
+
+    .intro {
+      font-size: 0.9375rem;
+      color: var(--color-neutral-700);
+      line-height: 1.55;
+      margin-bottom: 1.75rem;
+    }
+
+    .intro strong {
+      color: var(--color-neutral-900);
+    }
+
+    footer.page-foot {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: var(--color-neutral-500);
+      border-top: 1px solid var(--color-neutral-200);
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Design microsite">
+    <div class="site-nav__inner">
+      <a class="site-nav__brand" href="index.html">Artisti 7607 · design</a>
+      <ul class="site-nav__list">
+        <li><a href="index.html">Brand swatches</a></li>
+        <li><a href="mockups.html" aria-current="page">Layout mockups</a></li>
+        <li><a href="docs/rebuild-notes.html">Rebuild notes</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header id="site-header">
+    <div class="header-row">
+      <img class="header-logo" src="assets/artisti-brand-logo.png" width="120" height="48" alt="Artisti 7607" />
+      <div class="header-copy">
+        <h1>Chrome contract — header &amp; footer</h1>
+        <p>Three scenarios for <a href="https://artisti7607.com/">artisti7607.com</a> modernization: same regions and counts; labels and destinations change.</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <p class="intro">
+      <strong>Goal:</strong> Replace inconsistent, role-specific mega-menus with one predictable layout: logo, five primary destinations, four utility regions (FAQ, database search, language, session—session may include a compact role badge next to the account action). The fifth primary slot and the session region swap copy by audience; spacing and reading order stay fixed. Footer uses the same pattern everywhere: copyright plus four legal/contextual links.
+    </p>
+
+    <!-- Scenario 1: public -->
+    <section class="mock-block" aria-labelledby="mock-s1">
+      <h2 id="mock-s1">1 · Public (not logged in)</h2>
+      <p class="hint" style="margin:0 0 0.85rem;font-size:0.875rem;color:var(--color-neutral-500)">Fifth primary: generic “Servizi” (or news hub). Session: Accedi.</p>
+      <div class="mock-wrap" role="region" aria-label="Public header and footer mockup">
+        <div class="mock-bar">
+          <a class="mock-bar__logo" href="#">
+            <img src="assets/artisti-brand-logo.png" alt="Artisti 7607" />
+            <span class="visually-hidden">Home</span>
+          </a>
+          <nav class="mock-bar__primary" aria-label="Primary">
+            <a href="#">Home</a>
+            <a href="#">News</a>
+            <a href="#">Formazione</a>
+            <a href="#">Collecting</a>
+            <a href="#">Servizi</a>
+          </nav>
+          <div class="mock-bar__util" aria-label="Utilities">
+            <a href="#">FAQ</a>
+            <a href="#">Ricerca database</a>
+            <a href="#">ENG</a>
+            <a href="#">Accedi</a>
+          </div>
+        </div>
+        <div class="mock-body">Page content (WordPress loop, blocks, etc.)</div>
+        <footer class="mock-foot">
+          <span>© 2026 Artisti 7607</span>
+          <ul class="mock-foot__links">
+            <li><a href="#">Contattaci</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Informativa privacy</a></li>
+            <li><a href="#">Iscriviti</a></li>
+          </ul>
+        </footer>
+      </div>
+    </section>
+
+    <!-- Scenario 2: member -->
+    <section class="mock-block" aria-labelledby="mock-s2">
+      <h2 id="mock-s2">2 · Member (logged in)</h2>
+      <p class="hint" style="margin:0 0 0.85rem;font-size:0.875rem;color:var(--color-neutral-500)">Fifth primary: “Area riservata”. Session region: badge + account (still one utility slot).</p>
+      <div class="mock-wrap" role="region" aria-label="Member header and footer mockup">
+        <div class="mock-bar">
+          <a class="mock-bar__logo" href="#">
+            <img src="assets/artisti-brand-logo.png" alt="Artisti 7607" />
+            <span class="visually-hidden">Home</span>
+          </a>
+          <nav class="mock-bar__primary" aria-label="Primary">
+            <a href="#">Home</a>
+            <a href="#">News</a>
+            <a href="#">Formazione</a>
+            <a href="#">Collecting</a>
+            <a href="#">Area riservata</a>
+          </nav>
+          <div class="mock-bar__util" aria-label="Utilities">
+            <a href="#">FAQ</a>
+            <a href="#">Ricerca database</a>
+            <a href="#">ENG</a>
+            <span class="mock-session"><span class="mock-pill">Socio</span> <a href="#">Mario R. · Esci</a></span>
+          </div>
+        </div>
+        <div class="mock-body">Dashboard / reserved content.</div>
+        <footer class="mock-foot">
+          <span>© 2026 Artisti 7607</span>
+          <ul class="mock-foot__links">
+            <li><a href="#">Contattaci</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Informativa privacy</a></li>
+            <li><a href="#">Guida area riservata</a></li>
+          </ul>
+        </footer>
+      </div>
+    </section>
+
+    <!-- Scenario 3: staff -->
+    <section class="mock-block" aria-labelledby="mock-s3">
+      <h2 id="mock-s3">3 · Staff / operator</h2>
+      <p class="hint" style="margin:0 0 0.85rem;font-size:0.875rem;color:var(--color-neutral-500)">Fifth primary: “Strumenti” (links into approved tools only). Session: role + Esci.</p>
+      <div class="mock-wrap" role="region" aria-label="Staff header and footer mockup">
+        <div class="mock-bar">
+          <a class="mock-bar__logo" href="#">
+            <img src="assets/artisti-brand-logo.png" alt="Artisti 7607" />
+            <span class="visually-hidden">Home</span>
+          </a>
+          <nav class="mock-bar__primary" aria-label="Primary">
+            <a href="#">Home</a>
+            <a href="#">News</a>
+            <a href="#">Formazione</a>
+            <a href="#">Collecting</a>
+            <a href="#">Strumenti</a>
+          </nav>
+          <div class="mock-bar__util" aria-label="Utilities">
+            <a href="#">FAQ</a>
+            <a href="#">Ricerca database</a>
+            <a href="#">ENG</a>
+            <span class="mock-session"><span class="mock-pill">Staff</span> <a href="#">Esci</a></span>
+          </div>
+        </div>
+        <div class="mock-body">Editorial or operational views (same theme shell).</div>
+        <footer class="mock-foot">
+          <span>© 2026 Artisti 7607</span>
+          <ul class="mock-foot__links">
+            <li><a href="#">Contattaci</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Informativa privacy</a></li>
+            <li><a href="#">Note legali</a></li>
+          </ul>
+        </footer>
+      </div>
+    </section>
+
+    <p class="intro" style="margin-top:1.5rem;font-size:0.875rem">
+      Detailed implementation rules live in <a href="docs/rebuild-notes.html">Rebuild notes</a>. This page will gain more scenarios as static HTML grows.
+    </p>
+  </main>
+
+  <footer class="page-foot">
+    <p style="margin:0">
+      <a href="https://giorgioriccardi.github.io/artisti7607-frontend-design/">giorgioriccardi.github.io/artisti7607-frontend-design/</a>
+      — palette + layout mockups driven by <code>assets/manifest.json</code> where applicable.
+    </p>
+  </footer>
+</body>
+
+</html>

@@ -1,6 +1,12 @@
 # Artisti 7607 — frontend design (GitHub Pages)
 
-Public **color / type reference**: [giorgioriccardi.github.io/artisti7607-frontend-design](https://giorgioriccardi.github.io/artisti7607-frontend-design/)
+Public **design microsite** (GitHub Pages): [giorgioriccardi.github.io/artisti7607-frontend-design](https://giorgioriccardi.github.io/artisti7607-frontend-design/)
+
+| Page | Path |
+|------|------|
+| Brand / palette | [`index.html`](index.html) |
+| Header & footer mockups (3 scenarios) | [`mockups.html`](mockups.html) |
+| Rebuild / IA notes | [`docs/rebuild-notes.html`](docs/rebuild-notes.html) |
 
 **Roadmap and checklists** live in the main application repo README so they show on the org project page:
 

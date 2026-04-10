@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rebuild notes — Artisti 7607 Frontend Brand 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/site.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: var(--color-neutral-50);
+      color: var(--color-neutral-900);
+    }
+
+    .page-foot {
+      text-align: center;
+      padding: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-neutral-500);
+      border-top: 1px solid var(--color-neutral-200);
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Design microsite">
+    <div class="site-nav__inner">
+      <a class="site-nav__brand" href="../index.html">Artisti 7607 · design</a>
+      <ul class="site-nav__list">
+        <li><a href="../index.html">Brand swatches</a></li>
+        <li><a href="../mockups.html">Layout mockups</a></li>
+        <li><a href="rebuild-notes.html" aria-current="page">Rebuild notes</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <article class="docs-article" id="main">
+    <h1>Site rehaul — working notes</h1>
+    <p>
+      This document tracks <strong>direction</strong> for modernizing <a href="https://artisti7607.com/">artisti7607.com</a>
+      alongside the static GitHub Pages design kit. It is not a full specification; it will grow as new static pages are added under this repo.
+    </p>
+
+    <h2>Problem statement</h2>
+    <p>
+      The live site mixes navigation patterns: different headers for contexts, extended menus for some user levels, and behavior that is hard to predict when moving between public pages, logged-in areas, and tools. That increases cognitive load and makes the brand feel fragmented.
+    </p>
+
+    <h2>Chrome contract (all roles)</h2>
+    <p>
+      Every front-end view should share the <strong>same layout regions</strong>, whether the user is a guest, a member, or staff. Only <strong>labels and targets</strong> inside those regions change:
+    </p>
+    <ul>
+      <li><strong>Logo</strong> — always links to the site home (not a role-specific landing unless product explicitly requires it).</li>
+      <li><strong>Primary navigation</strong> — exactly <strong>five</strong> top-level destinations. The fifth slot is the “variable” column (e.g. Servizi, Area riservata, Strumenti) so marketing, product, and ops can agree on one reserved slot instead of growing new top-level rows per audience.</li>
+      <li><strong>Utilities</strong> — exactly <strong>four</strong> regions: FAQ, database search, language, session. Session may bundle a small role badge with the account or sign-out control so the bar does not sprawl.</li>
+      <li><strong>Footer</strong> — copyright plus <strong>four</strong> links in one row (legal + one contextual link such as Iscriviti, Guida, or Note legali). Same HTML structure on every template.</li>
+    </ul>
+    <p>
+      Visual reference: <a href="../mockups.html">Layout mockups</a>.
+    </p>
+
+    <h2>WordPress / implementation hints</h2>
+    <ul>
+      <li>Implement the chrome once in the <strong>child theme</strong> (header/footer partials), not per-page PHP branches that duplicate markup.</li>
+      <li>Drive link sets from <strong>menus or options</strong> registered in WordPress, with validation so editors cannot exceed the agreed counts (or overflow is intentionally folded into the fifth primary or utility session).</li>
+      <li>Keep <code>is_home</code>, <code>is_admin</code> (bar on front), and role checks to <strong>swap URLs and labels only</strong>, not to inject a second navigation system.</li>
+      <li>Prefer one responsive breakpoint strategy (e.g. hamburger that still exposes the same information architecture) documented here when mobile mockups exist.</li>
+    </ul>
+
+    <h2>This repository</h2>
+    <ul>
+      <li><a href="../index.html">Brand swatches</a> — tokens from <code>assets/manifest.json</code> where applicable.</li>
+      <li><a href="../mockups.html">Layout mockups</a> — static HTML for header/footer scenarios.</li>
+      <li><code>docs/rebuild-notes.html</code> (this page) — narrative for the rehaul.</li>
+    </ul>
+    <p>
+      Application roadmap items remain in the <a href="https://github.com/Artisti7607-dev/WebSite2.0#frontend-design-checklist-todos">WebSite2.0 README checklist</a>.
+    </p>
+  </article>
+
+  <footer class="page-foot">
+    <p style="margin:0">
+      <a href="https://giorgioriccardi.github.io/artisti7607-frontend-design/">giorgioriccardi.github.io/artisti7607-frontend-design/</a>
+    </p>
+  </footer>
+</body>
+
+</html>
