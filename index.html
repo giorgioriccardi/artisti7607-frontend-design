@@ -27,17 +27,15 @@
       --color-neutral-50: #f0f4f8;
 
       /*
-        Semantic — same DNA as brand blues + accent red:
-        success = blue-teal (shares hue with graded blue / logo slate)
-        warning = coral-terracotta (warm neighbor of accent red, not flat amber)
-        error = vivid brand red (same hue as accessory red, slightly brighter for UI)
-        info = lifted cyan-blue (brighter sibling of graded #216f98)
-        *-soft = tinted surfaces for alerts / chips (still on-brand)
+        Semantic — brand-adjacent but more vivid for UI:
+        success = saturated blue-teal (still cool / graded-blue family, not muddy)
+        warning = vivid coral-orange (punchier than terracotta, still kin to accent red)
+        error / info unchanged
       */
-      --color-success: #178a7a;
-      --color-success-soft: #dff2ef;
-      --color-warning: #cf5c3b;
-      --color-warning-soft: #fceee9;
+      --color-success: #0db39c;
+      --color-success-soft: #cff8f2;
+      --color-warning: #ff6b35;
+      --color-warning-soft: #ffe8de;
       --color-error: #d92222;
       --color-error-soft: #fde8e8;
       --color-info: #2f8db8;
@@ -188,11 +186,11 @@
 
     <section aria-labelledby="semantic-heading">
       <h2 id="semantic-heading">Semantic (static)</h2>
-      <p class="hint" style="margin-bottom:1rem">Derived from the same cool blues and accent red as brand/accessory: <strong>teal success</strong>, <strong>coral warning</strong> (warm cousin of red), <strong>brand-strength error</strong>, <strong>lifted info blue</strong>. Each pair is <code>solid</code> + <code>-soft</code> for surfaces.</p>
+      <p class="hint" style="margin-bottom:1rem"><strong>Success</strong> / <strong>warning</strong> are vivid but still on-axis: saturated blue-teal and coral-orange. <strong>Error</strong> / <strong>info</strong> unchanged. Each pair is <code>solid</code> + <code>-soft</code> for surfaces.</p>
       <div class="swatch-grid">
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-success)"></div>
-          <div class="swatch-meta"><code>success</code><span>Blue-teal · harmony with graded blue</span></div>
+          <div class="swatch-meta"><code>success</code><span>Vivid blue-teal · #0db39c</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-success-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
@@ -200,7 +198,7 @@
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-warning)"></div>
-          <div class="swatch-meta"><code>warning</code><span>Coral · warm kin to accent red</span></div>
+          <div class="swatch-meta"><code>warning</code><span>Vivid coral-orange · #ff6b35</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-warning-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
