@@ -5,8 +5,10 @@ Public **design microsite** (GitHub Pages): [giorgioriccardi.github.io/artisti76
 | Page | Path |
 |------|------|
 | Brand / palette | [`index.html`](index.html) |
-| Header & footer mockups (3 scenarios) | [`mockups.html`](mockups.html) |
+| Header & footer mockups (6 scenarios) | [`mockups.html`](mockups.html) |
 | Rebuild / IA notes | [`docs/rebuild-notes.html`](docs/rebuild-notes.html) |
+
+**Static assets:** `css/core/site.css` (shared chrome), `css/pages/palette.css` / `mockups.css` (per page), `js/pages/palette.js` (swatch page behavior).
 
 **Roadmap and checklists** live in the main application repo README so they show on the org project page:
 

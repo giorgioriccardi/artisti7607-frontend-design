@@ -1,0 +1,323 @@
+/*
+  Brand swatches page (index.html).
+  Corners: 0 border-radius (on-brand square geometry).
+*/
+
+:root {
+  /*
+    Static fallbacks aligned to assets/ (64×64 average sample, Pillow):
+    logo #3a5365, darker-bg #67869e, all-brand-colors #95bcce,
+    graded-blue #216f98, red-extra #cc1514
+  */
+  --color-primary: #3a5365;
+  --color-primary-light: #67869e;
+  --color-accent: #cc1514;
+  --color-accent-muted: #95bcce;
+
+  /* Brand chart (artisti-all-brand-colors.jpg): bright blue + navy pair */
+  --color-brand-prime-blue: #01a7e1;
+  --color-brand-prime-navy: #3b4352;
+
+  /*
+    Accessory reference medians (64px Pillow sample — live page uses JS average):
+    graded blue #136d9d · dark surface #264f59 · archive paper #e9d4b2 · pink #c29ad5 · red #cc0200
+  */
+
+  --color-neutral-900: #1e2d3a;
+  --color-neutral-700: #3d4f5f;
+  --color-neutral-500: #6b7f90;
+  --color-neutral-200: #c8d4de;
+  --color-neutral-50: #f0f4f8;
+
+  /* Whites / off-whites (after neutral-50 in the ramp) */
+  --color-white: #ffffff;
+  --color-white-mist: #f5f7fa;
+  --color-white-shell: #faf7f2;
+
+  /*
+    Semantic — brand-adjacent but more vivid for UI:
+    success = saturated blue-teal (still cool / graded-blue family, not muddy)
+    warning = vivid coral-orange (punchier than terracotta, still kin to accent red)
+    error / info unchanged
+  */
+  --color-success: #00a589;
+  --color-success-soft: #cff8f2;
+  --color-warning: #ff6b35;
+  --color-warning-soft: #ffd0c0;
+  --color-error: #d92222;
+  --color-error-soft: #fde8e8;
+  --color-info: #2f8db8;
+  --color-info-soft: #e3f1f8;
+
+  /* Matches live site https://artisti7607.com (Lato body) */
+  --font-sans: "Lato", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  color: var(--color-neutral-900);
+  background: var(--color-neutral-50);
+  line-height: 1.5;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+header {
+  background: var(--header-bg, var(--color-brand-prime-blue));
+  color: #fff;
+  padding: 1.25rem 1.5rem;
+  transition: background 0.2s ease;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.header-logo {
+  height: 3rem;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.18));
+}
+
+.header-copy h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.header-copy p {
+  margin: 0;
+  opacity: 0.92;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+main {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+section {
+  background: #fff;
+  border: 1px solid var(--color-neutral-200);
+  border-radius: 0;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+section h2 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-neutral-700);
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-neutral-500);
+}
+
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+/* Semantic: 4 columns — row 1 solid, row 2 -soft */
+.semantic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+/* Keep four columns on typical tablets; stack only on narrow viewports */
+@media (max-width: 720px) {
+  .semantic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 380px) {
+  .semantic-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.swatch {
+  border-radius: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-neutral-200);
+}
+
+/* Brand / Accessory / Neutrals: six colors, three per row (2×3) */
+.palette-six {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 0.65rem;
+}
+
+@media (max-width: 640px) {
+  .palette-six {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.palette-six__item {
+  border-radius: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-neutral-200);
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.palette-six__chip {
+  height: 4rem;
+  min-height: 4rem;
+  flex-shrink: 0;
+}
+
+.palette-six__chip--outline {
+  box-shadow: inset 0 0 0 1px var(--color-neutral-200);
+}
+
+.palette-six__item .swatch-meta {
+  flex: 1;
+}
+
+.palette-six__item .swatch-bar {
+  height: 4rem;
+  min-height: 4rem;
+}
+
+.swatch-bar {
+  display: flex;
+  height: 4.5rem;
+  min-height: 4.5rem;
+}
+
+.swatch-bar .swatch-color {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+}
+
+.swatch>.swatch-color {
+  height: 4.5rem;
+}
+
+.swatch-ref {
+  width: 5.25rem;
+  flex-shrink: 0;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-left: 1px solid var(--color-neutral-200);
+  display: block;
+  background: var(--color-neutral-200);
+}
+
+.swatch-ref--missing {
+  background: repeating-linear-gradient(-45deg, #e2e8f0, #e2e8f0 5px, #cbd5e1 5px, #cbd5e1 10px);
+}
+
+.swatch-thumb {
+  height: 4.5rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.swatch-meta {
+  padding: 0.5rem 0.65rem;
+  font-size: 0.75rem;
+  background: #fff;
+}
+
+.swatch-meta code {
+  display: block;
+  color: var(--color-neutral-700);
+  word-break: break-all;
+}
+
+.swatch-meta span {
+  color: var(--color-neutral-500);
+}
+
+/* WCAG-oriented notes; text ≥4.5:1 on #f8fafc (neutral-700 body) */
+.swatch-a11y {
+  padding: 0.45rem 0.65rem 0.5rem;
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  color: var(--color-neutral-700);
+  background: #f8fafc;
+  border-top: 1px solid var(--color-neutral-200);
+}
+
+.swatch-a11y-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.15rem 0.5rem;
+}
+
+.swatch-a11y-topic {
+  color: var(--color-neutral-700);
+  font-weight: 600;
+  max-width: 58%;
+}
+
+.swatch-a11y-eval {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.swatch-a11y-verdict {
+  font-weight: 700;
+  color: var(--color-neutral-900);
+}
+
+.swatch-a11y-grade {
+  font-weight: 700;
+  color: var(--color-neutral-900);
+}
+
+.swatch.missing .swatch-color {
+  background: repeating-linear-gradient(-45deg, #eee, #eee 6px, #ddd 6px, #ddd 12px);
+}
+
+.swatch.missing .palette-six__chip {
+  background: repeating-linear-gradient(-45deg, #eee, #eee 6px, #ddd 6px, #ddd 12px);
+}
+
+.swatch.missing .swatch-meta span {
+  color: var(--color-error);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: var(--color-neutral-500);
+}

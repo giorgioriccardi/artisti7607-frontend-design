@@ -1,6 +1,7 @@
 /*
   Shared layout for artisti7607-frontend-design (GitHub Pages).
-  Palette page keeps additional inline styles in index.html.
+  Brand: square corners (border-radius: 0) on chrome and contract mockups.
+  Page-specific rules live under css/pages/.
 */
 
 :root {
@@ -36,7 +37,7 @@
   color: #fff;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 .skip-link:focus {
@@ -97,7 +98,7 @@
   color: var(--color-brand-prime-blue);
 }
 
-/* Layout mockups: same chrome contract, labels swap by scenario */
+/* Layout mockups: same chrome contract, labels swap by scenario (square corners) */
 .mock-block {
   margin-bottom: 2rem;
 }
@@ -117,7 +118,7 @@
 
 .mock-wrap {
   border: 1px solid var(--color-neutral-200);
-  border-radius: 8px;
+  border-radius: 0;
   overflow: hidden;
   background: #fff;
 }
@@ -192,7 +193,7 @@
 .mock-bar__util .mock-pill {
   display: inline-block;
   padding: 0.15rem 0.45rem;
-  border-radius: 4px;
+  border-radius: 0;
   background: rgba(255, 255, 255, 0.12);
   font-size: 0.75rem;
 }
