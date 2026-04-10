@@ -25,7 +25,7 @@ Current `manifest.json` (checked in to match repo assets):
 - **Brand** — logo, logo on dark background, full brand-color reference sheet.  
 - **Accessory** — graded blue environment / backgrounds, extra red accent.
 
-The composite **`artisti-all-brand-colors.jpg`** also carries a Prime Video–style wordmark; two hex codes for that pair (**`--color-brand-prime-blue`**, **`--color-brand-prime-navy`**) are defined in **`index.html`** and were derived by **image sampling** (not automatic “read all swatches from the JPEG”). Re-run sampling if that file is replaced.
+Two **brand chart** colors (**`--color-brand-prime-blue`**, **`--color-brand-prime-navy`**) from the composite chart are listed first in the Brand row in **`index.html`** (hex in `:root`); manifest images append after them.
 
 Paths are **relative to this folder** (filenames only, no `assets/` prefix).
 

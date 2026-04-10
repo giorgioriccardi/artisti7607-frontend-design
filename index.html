@@ -16,12 +16,7 @@
       --color-accent: #cc1514;
       --color-accent-muted: #95bcce;
 
-      /*
-        From artisti-all-brand-colors.jpg — Prime Video-style wordmark pair
-        (sampled with Pillow, not “read” as a human swatch list):
-        cyan “prime” + arrow: median of left color band → #01a7e1
-        dark “video”: mean of darkest ~8% pixels in image right half → #3b4352
-      */
+      /* Brand chart (artisti-all-brand-colors.jpg): bright blue + navy pair */
       --color-brand-prime-blue: #01a7e1;
       --color-brand-prime-navy: #3b4352;
 
@@ -61,7 +56,7 @@
     }
 
     header {
-      background: var(--header-bg, var(--color-primary));
+      background: var(--header-bg, var(--color-brand-prime-blue));
       color: #fff;
       padding: 1.25rem 1.5rem;
       transition: background 0.2s ease;
@@ -83,13 +78,6 @@
       font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      color: var(--color-neutral-700);
-    }
-
-    section h3 {
-      margin: 1.5rem 0 0.65rem;
-      font-size: 0.9rem;
-      font-weight: 600;
       color: var(--color-neutral-700);
     }
 
@@ -145,26 +133,19 @@
       <p id="brand-empty" class="hint" hidden>
         No brand files listed. Add images under <code>assets/</code> and their names to <code>assets/manifest.json</code> → <code>brand</code>. See <code>assets/README.md</code>.
       </p>
-      <div id="brand-grid" class="swatch-grid" aria-live="polite"></div>
-
-      <h3 id="brand-prime-heading">Prime Video wordmark pair (from chart)</h3>
-      <p class="hint" style="margin-bottom:0.75rem">
-        Two colors from the Prime Video–style treatment in <code>artisti-all-brand-colors.jpg</code>.
-        Hex values are <strong>sampled in software</strong> (regional median / dark-pixel average)—we do not automatically read every named swatch in a JPEG; re-sample if the master file changes.
-      </p>
-      <div class="swatch-grid" aria-labelledby="brand-prime-heading">
+      <div id="brand-grid" class="swatch-grid" aria-live="polite">
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-brand-prime-blue)"></div>
           <div class="swatch-meta">
-            <code>brand-prime-blue</code>
-            <span>“prime” + curve · #01a7e1</span>
+            <code>--color-brand-prime-blue · #01a7e1</code>
+            <span>Brand chart</span>
           </div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-brand-prime-navy)"></div>
           <div class="swatch-meta">
-            <code>brand-prime-navy</code>
-            <span>“video” dark · #3b4352</span>
+            <code>--color-brand-prime-navy · #3b4352</code>
+            <span>Brand chart</span>
           </div>
         </div>
       </div>
@@ -345,28 +326,25 @@
     });
   }
 
-  function renderGroup(files, gridEl, emptyEl, setHeaderFromFirst) {
+  function renderGroup(files, gridEl, emptyEl) {
     if (!files || !files.length) {
-      emptyEl.hidden = false;
-      return Promise.resolve(null);
+      if (gridEl.children.length === 0) emptyEl.hidden = false;
+      return Promise.resolve();
     }
     emptyEl.hidden = true;
-    var firstHex = null;
     var chain = Promise.resolve();
     files.forEach(function (name) {
       chain = chain.then(function () {
         var url = assetUrl(name);
-        var stem = fileStem(name);
         return loadImage(url).then(function (img) {
           var hex = averageColor(img);
           gridEl.appendChild(swatchEl(url, name, hex, false));
-          if (hex && firstHex === null && setHeaderFromFirst) firstHex = hex;
         }).catch(function () {
           gridEl.appendChild(swatchEl(url, name, null, true));
         });
       });
     });
-    return chain.then(function () { return firstHex; });
+    return chain;
   }
 
   fetch(assetUrl('manifest.json'))
@@ -377,11 +355,8 @@
     .then(function (data) {
       var brand = data.brand || [];
       var accessory = data.accessory || [];
-      return renderGroup(brand, document.getElementById('brand-grid'), document.getElementById('brand-empty'), true).then(function (firstHex) {
-        if (firstHex) {
-          document.documentElement.style.setProperty('--header-bg', firstHex);
-        }
-        return renderGroup(accessory, document.getElementById('accessory-grid'), document.getElementById('accessory-empty'), false);
+      return renderGroup(brand, document.getElementById('brand-grid'), document.getElementById('brand-empty')).then(function () {
+        return renderGroup(accessory, document.getElementById('accessory-grid'), document.getElementById('accessory-empty'));
       });
     })
     .catch(function () {
