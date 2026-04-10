@@ -31,14 +31,14 @@
       <img class="header-logo" src="assets/artisti-brand-logo.png" width="120" height="48" alt="Artisti 7607" />
       <div class="header-copy">
         <h1>Home page — initial directions</h1>
-        <p>Five static compositions for a future <a href="https://artisti7607.com/">artisti7607.com</a> home. Ideas 1–3 use the compact navy header bar; ideas 4–5 use the spacious utility-button header (see <a href="headers-mockups.html#mock-s4">Headers mockups · alternates</a>). Body layouts vary below the header.</p>
+        <p>Eight static compositions for a future <a href="https://artisti7607.com/">artisti7607.com</a> home. Ideas 1–3 use the compact navy header bar; 4–5 use the spacious utility-button header (<a href="headers-mockups.html#mock-s4">Headers · alternates</a>); <strong>6–8</strong> pair those chrome types with <strong>mega menus</strong> (panels always open for wireframe review — see <a href="headers-mockups.html#mega-menus">Headers · mega explorations</a>).</p>
       </div>
     </div>
   </header>
 
   <main id="main">
     <p class="home-intro">
-      Each block is a self-contained wireframe: square corners, brand navy / blue / neutrals. Copy is placeholder. Ideas <strong>4–5</strong> pair a light, padded header (FAQ / Ricerca as outline actions, <strong>Accedi</strong> as primary CTA) with a calmer body—same information architecture as the contract header, different density.
+      Each block is a self-contained wireframe: square corners, brand navy / blue / neutrals. Copy is placeholder. Ideas <strong>4–5</strong> use spacious CTA headers without mega panels. Ideas <strong>6–8</strong> show how a home first screen can read when <strong>News</strong>, <strong>Servizi</strong>, or <strong>Formazione</strong> keeps a wide mega open (same patterns as the header mega mocks, plus hero or digest below).
     </p>
 
     <!-- Shared mini-header snippet inside each frame -->
@@ -354,6 +354,207 @@
             <a class="home-chip-btn home-chip-btn--inline" href="#">Accedi all’area</a>
           </article>
         </div>
+        <div class="home-frame-foot">
+          <span>© 2026 Artisti 7607</span>
+          <span>Contattaci · Cookie · Privacy · Iscriviti</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="home-page-divider" id="home-mega-menus">
+      <h2 class="home-page-divider__title">Home + mega menu</h2>
+      <p class="home-page-divider__text">Three full-page wireframes: header chrome + <strong>open mega panel</strong>, then a short hero or digest so the fold reads as “navigation + story,” not only navigation. Aligns with <a href="headers-mockups.html#mega-menus">Headers mockups · mega menu explorations</a>.</p>
+    </div>
+
+    <!-- 6 · Navy + News mega -->
+    <section class="home-idea" aria-labelledby="home-6">
+      <h2 id="home-6">6 · Navy home + News mega + hero strip</h2>
+      <p class="hint">Contract bar; <strong>News ▾</strong> open with three columns (featured accordo, link list, “Tutte le news” CTA). Below: a slim hero line + two in-evidenza tiles — typical landing when news is the primary draw.</p>
+      <div class="home-frame home-frame--mega-home" role="region" aria-label="Home concept 6, navy with News mega">
+        <div class="home-mega-stack">
+          <div class="mock-bar">
+            <a class="mock-bar__logo" href="#">
+              <img src="assets/artisti-brand-logo.png" alt="Artisti 7607" />
+              <span class="visually-hidden">Home</span>
+            </a>
+            <nav class="mock-bar__primary" aria-label="Primary">
+              <a href="#">Home</a>
+              <a href="#" aria-current="page">News ▾</a>
+              <a href="#">Formazione</a>
+              <a href="#">Collecting</a>
+              <a href="#">Servizi</a>
+            </nav>
+            <div class="mock-bar__util" aria-label="Utilities">
+              <a href="#">FAQ</a>
+              <a href="#">Ricerca database</a>
+              <a href="#">ENG</a>
+              <a href="#">Accedi</a>
+            </div>
+          </div>
+          <div class="home-mega-panel" aria-label="Mega menu News (example)">
+            <div class="home-mega-grid home-mega-grid--3feat">
+              <div class="home-mega-featurebox">
+                <h3 class="home-mega-kicker">In evidenza</h3>
+                <p class="home-mega-lede">Accordo pluriennale Amazon Prime Video · comunicato stampa e allegati.</p>
+                <a class="home-btn home-btn--primary home-btn--sm" href="#">Leggi il comunicato</a>
+              </div>
+              <div class="home-mega-colplain">
+                <h3 class="home-mega-kicker">Rubriche</h3>
+                <ul class="home-mega-links">
+                  <li><a href="#">Comunicati</a></li>
+                  <li><a href="#">Media e rassegna</a></li>
+                  <li><a href="#">Archivio</a></li>
+                </ul>
+              </div>
+              <div class="home-mega-colplain home-mega-colplain--cta">
+                <h3 class="home-mega-kicker">Resta aggiornato</h3>
+                <p class="home-mega-small">Iscriviti alla newsletter istituzionale.</p>
+                <a class="home-btn home-btn--outline home-btn--sm" href="#">Iscriviti</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-mega-hero-slim">
+          <h3 class="home-mega-hero-slim__h">I nostri primi 13 anni — sintesi e materiali</h3>
+          <a class="home-btn home-btn--solid-navy home-btn--sm" href="#">Apri pagina dedicata</a>
+        </div>
+        <div class="home-band home-band--tight">
+          <h4>Altri titoli</h4>
+          <div class="home-band__grid">
+            <div class="home-tile">
+              <div class="home-tile__k">Formazione</div>
+              <div class="home-tile__t">Nuovo calendario webinar Q2</div>
+            </div>
+            <div class="home-tile">
+              <div class="home-tile__k">Collecting</div>
+              <div class="home-tile__t">FAQ ripartizione compensi</div>
+            </div>
+          </div>
+        </div>
+        <div class="home-frame-foot">
+          <span>© 2026 Artisti 7607</span>
+          <span>Contattaci · Cookie · Privacy · Iscriviti</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · Air + Servizi mega -->
+    <section class="home-idea" aria-labelledby="home-7">
+      <h2 id="home-7">7 · Air home + Servizi mega + split teaser</h2>
+      <p class="hint">Spacious light header; <strong>Servizi ▾</strong> open with four cells (documenti, sportelli, modulistica, assistenza) plus a short intro column. Below: asymmetric split — copy + CTA left, visual placeholder right — same mega DNA as header mock 9 but on a marketing-weight home.</p>
+      <div class="home-frame home-frame--mega-home home-frame--mega-air" role="region" aria-label="Home concept 7, air with Servizi mega">
+        <div class="home-mega-stack">
+          <div class="home-air-top home-air-top--mega">
+            <a class="home-air-logo" href="#">
+              <img src="assets/artisti-brand-logo.png" alt="Artisti 7607" />
+              <span class="visually-hidden">Home</span>
+            </a>
+            <nav class="home-air-primary" aria-label="Primary">
+              <a href="#">Home</a>
+              <a href="#">News</a>
+              <a href="#">Formazione</a>
+              <a href="#">Collecting</a>
+              <a href="#" aria-current="page">Servizi ▾</a>
+            </nav>
+            <div class="home-air-utils" aria-label="Utilities">
+              <a class="home-chip-btn" href="#">FAQ</a>
+              <a class="home-chip-btn" href="#">Ricerca database</a>
+              <span class="home-air-lang">ENG</span>
+              <a class="home-btn home-btn--primary" href="#">Accedi</a>
+            </div>
+          </div>
+          <div class="home-mega-panel home-mega-panel--air-home" aria-label="Mega menu Servizi (example)">
+            <div class="home-mega-grid home-mega-grid--4tiles">
+              <a class="home-mega-tilelink" href="#"><span class="home-mega-tilelink__t">Documenti</span><span class="home-mega-tilelink__d">PDF e circolari</span></a>
+              <a class="home-mega-tilelink" href="#"><span class="home-mega-tilelink__t">Sportelli</span><span class="home-mega-tilelink__d">Orari e contatti</span></a>
+              <a class="home-mega-tilelink" href="#"><span class="home-mega-tilelink__t">Modulistica</span><span class="home-mega-tilelink__d">Domande e adesioni</span></a>
+              <a class="home-mega-tilelink" href="#"><span class="home-mega-tilelink__t">Assistenza</span><span class="home-mega-tilelink__d">FAQ e ticket</span></a>
+            </div>
+            <div class="home-mega-air-blurb">
+              <p>Area riservata, contributi e privacy: un unico ingresso per i flussi amministrativi più richiesti.</p>
+              <a class="home-chip-btn home-chip-btn--inline" href="#">Guida rapida</a>
+            </div>
+          </div>
+        </div>
+        <div class="home-split home-split--short">
+          <div class="home-split__copy">
+            <h3>Diritti chiari, percorsi semplici</h3>
+            <p>Mega carries depth; the hero stays short so members see both navigation and the next action without scrolling.</p>
+            <div class="home-cta-row">
+              <a class="home-btn home-btn--primary" href="#">Area riservata</a>
+              <a class="home-btn home-btn--outline" href="#">Contattaci</a>
+            </div>
+          </div>
+          <div class="home-split__visual" aria-hidden="true">
+            <span>Hero visual</span>
+          </div>
+        </div>
+        <div class="home-frame-foot">
+          <span>© 2026 Artisti 7607</span>
+          <span>Contattaci · Cookie · Privacy · <a class="home-foot-cta" href="#">Iscriviti</a></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · Dock + Formazione mega -->
+    <section class="home-idea" aria-labelledby="home-8">
+      <h2 id="home-8">8 · Dock home + Formazione mega + digest row</h2>
+      <p class="hint">Utility strip + white bar; <strong>Formazione ▾</strong> open with top band (copy + CTA) and six quick links (mirrors header mock 9). Below: three-column digest strip — good when the home must surface deadlines next.</p>
+      <div class="home-frame home-frame--mega-home home-frame--mega-dock" role="region" aria-label="Home concept 8, dock with Formazione mega">
+        <div class="home-mega-stack">
+          <div class="home-dock-strip">
+            <a href="#">FAQ</a>
+            <span class="home-dock-sep" aria-hidden="true">·</span>
+            <a href="#">Ricerca database</a>
+            <span class="home-dock-sep" aria-hidden="true">·</span>
+            <a href="#">ENG</a>
+          </div>
+          <div class="home-dock-main">
+            <a class="home-dock-logo" href="#">
+              <img src="assets/artisti-brand-logo.png" alt="Artisti 7607" />
+              <span class="visually-hidden">Home</span>
+            </a>
+            <nav class="home-dock-primary" aria-label="Primary">
+              <a href="#">Home</a>
+              <a href="#">News</a>
+              <a href="#" aria-current="page">Formazione ▾</a>
+              <a href="#">Collecting</a>
+              <a href="#">Servizi</a>
+            </nav>
+            <div class="home-dock-ctas" aria-label="Account">
+              <a class="home-chip-btn" href="#">Iscriviti</a>
+              <a class="home-btn home-btn--primary" href="#">Accedi</a>
+            </div>
+          </div>
+          <div class="home-mega-panel home-mega-panel--dock-home" aria-label="Mega menu Formazione (example)">
+            <div class="home-mega-band">
+              <p class="home-mega-band__text">Corsi, webinar e sportello formativo: calendario unico e materiali didattici aggiornati.</p>
+              <a class="home-btn home-btn--primary home-btn--sm" href="#">Vai al calendario</a>
+            </div>
+            <div class="home-mega-grid home-mega-grid--6q">
+              <a class="home-mega-quick" href="#">Webinar live</a>
+              <a class="home-mega-quick" href="#">Archivio video</a>
+              <a class="home-mega-quick" href="#">Scheda corso base</a>
+              <a class="home-mega-quick" href="#">Sportello FAQ</a>
+              <a class="home-mega-quick" href="#">Moduli iscrizione</a>
+              <a class="home-mega-quick" href="#">Contatti formazione</a>
+            </div>
+          </div>
+        </div>
+        <ul class="home-strip home-strip--3">
+          <li class="home-strip__item">
+            <strong>Scadenza</strong>
+            Documenti entro 30 aprile
+          </li>
+          <li class="home-strip__item">
+            <strong>Live</strong>
+            Intro collecting · 18 aprile
+          </li>
+          <li class="home-strip__item">
+            <strong>News</strong>
+            Comunicato Prime Video
+          </li>
+        </ul>
         <div class="home-frame-foot">
           <span>© 2026 Artisti 7607</span>
           <span>Contattaci · Cookie · Privacy · Iscriviti</span>
