@@ -288,12 +288,6 @@
       gap: 0.15rem 0.5rem;
     }
 
-    .swatch-a11y-row+.swatch-a11y-row {
-      margin-top: 0.35rem;
-      padding-top: 0.35rem;
-      border-top: 1px dashed var(--color-neutral-200);
-    }
-
     .swatch-a11y-topic {
       color: var(--color-neutral-700);
       font-weight: 600;
@@ -348,6 +342,11 @@
   </header>
 
   <main>
+    <p class="hint" style="margin-bottom:1.25rem"><strong>Muted captions on this page:</strong> The smaller line under each
+      token name uses <code>neutral-500</code> at 12px (~<strong>4.15:1</strong> on white). That is <strong>below WCAG AA</strong>
+      for normal body-sized text—it’s a deliberate demo choice. For production UI, use <code>neutral-700</code> and/or
+      14–16px for anything people need to read comfortably. Each <strong>A11y</strong> strip under a swatch only rates
+      contrast for <em>that color as a background</em> (or role where noted).</p>
     <section aria-labelledby="brand-assets-heading">
       <h2 id="brand-assets-heading">Brand (from assets)</h2>
       <p class="hint" style="margin-bottom:0.75rem">
@@ -371,10 +370,6 @@
               <span class="swatch-a11y-topic">White text on this blue</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">3/10</span></span>
             </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
           </div>
         </div>
         <div class="palette-six__item swatch">
@@ -392,10 +387,6 @@
               <span class="swatch-a11y-topic">White text on this navy</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
             </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
           </div>
         </div>
         <div class="palette-six__item swatch">
@@ -410,10 +401,6 @@
               <span class="swatch-a11y-topic">Using this color for headings &amp; main text</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
             </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
           </div>
         </div>
         <div class="palette-six__item swatch">
@@ -427,10 +414,6 @@
             <div class="swatch-a11y-row">
               <span class="swatch-a11y-topic">Using this color for paragraphs &amp; UI labels</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
-            </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
             </div>
           </div>
         </div>
@@ -447,10 +430,6 @@
               <span class="swatch-a11y-topic">Everyday text on this soft gray background</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
             </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
           </div>
         </div>
         <div class="palette-six__item swatch">
@@ -464,10 +443,6 @@
             <div class="swatch-a11y-row">
               <span class="swatch-a11y-topic">Dark text on this white surface</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
-            </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
             </div>
           </div>
         </div>
@@ -502,10 +477,6 @@
               <span class="swatch-a11y-topic">Using this color for headings &amp; main text</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
             </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
           </div>
         </div>
         <div class="palette-six__item swatch">
@@ -516,10 +487,6 @@
               <span class="swatch-a11y-topic">Using this color for paragraphs &amp; UI labels</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
             </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
           </div>
         </div>
         <div class="palette-six__item swatch">
@@ -528,10 +495,6 @@
           <div class="swatch-a11y" title="As 12px caption on white ~4.15:1 — fails AA body.">
             <div class="swatch-a11y-row">
               <span class="swatch-a11y-topic">Small gray text on a white background</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
             </div>
           </div>
@@ -544,10 +507,6 @@
               <span class="swatch-a11y-topic">Seeing borders &amp; dividers on white</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Low</span> · <span class="swatch-a11y-grade">5/10</span></span>
             </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
           </div>
         </div>
         <div class="palette-six__item swatch">
@@ -559,10 +518,6 @@
               <span class="swatch-a11y-topic">Everyday text on this soft gray background</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
             </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
           </div>
         </div>
         <div class="palette-six__item swatch">
@@ -573,10 +528,6 @@
               <span class="swatch-a11y-topic">Dark text on this cool off-white</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
             </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
           </div>
         </div>
       </div>
@@ -585,8 +536,8 @@
     <section aria-labelledby="semantic-heading">
       <h2 id="semantic-heading">Semantic (static)</h2>
       <p class="hint" style="margin-bottom:1rem"><strong>Layout:</strong> <strong>four columns</strong>, two rows — row 1 =
-        success, warning, error, info; row 2 = matching <code>-soft</code> fills. <strong>A11y</strong> rows rate light vs
-        dark text on each fill plus the gray helper line.</p>
+        success, warning, error, info; row 2 = matching <code>-soft</code> fills. <strong>A11y</strong> under each tile is
+        only about text contrast on <em>that</em> fill (see note above on muted captions).</p>
       <div class="semantic-grid">
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-success)"></div>
@@ -594,10 +545,6 @@
           <div class="swatch-a11y" title="White on fill ~3.1:1 — fails AA body. Prefer dark text/icons on this fill.">
             <div class="swatch-a11y-row">
               <span class="swatch-a11y-topic">White text on this color</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
             </div>
           </div>
@@ -610,10 +557,6 @@
               <span class="swatch-a11y-topic">White text on this color</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">3/10</span></span>
             </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
           </div>
         </div>
         <div class="swatch">
@@ -624,10 +567,6 @@
               <span class="swatch-a11y-topic">White text on this color</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
             </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
           </div>
         </div>
         <div class="swatch">
@@ -636,10 +575,6 @@
           <div class="swatch-a11y" title="White on fill ~3.7:1 — fails AA body. Prefer dark text on solid info.">
             <div class="swatch-a11y-row">
               <span class="swatch-a11y-topic">White text on this color</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
             </div>
           </div>
@@ -653,10 +588,6 @@
               <span class="swatch-a11y-topic">Dark text on this color</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
             </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
           </div>
         </div>
         <div class="swatch">
@@ -667,10 +598,6 @@
             <div class="swatch-a11y-row">
               <span class="swatch-a11y-topic">Dark text on this color</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">7/10</span></span>
-            </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
             </div>
           </div>
         </div>
@@ -683,10 +610,6 @@
               <span class="swatch-a11y-topic">Dark text on this color</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
             </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
           </div>
         </div>
         <div class="swatch">
@@ -697,10 +620,6 @@
             <div class="swatch-a11y-row">
               <span class="swatch-a11y-topic">Dark text on this color</span>
               <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
-            </div>
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Gray helper text under the tile</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
             </div>
           </div>
         </div>
@@ -814,19 +733,6 @@
         row1.appendChild(t1);
         row1.appendChild(e1);
         box.appendChild(row1);
-
-        var row2 = document.createElement('div');
-        row2.className = 'swatch-a11y-row';
-        row2.title = 'The small gray line uses neutral-500 at 12px (~4.15:1 on white).';
-        var t2 = document.createElement('span');
-        t2.className = 'swatch-a11y-topic';
-        t2.textContent = 'Gray helper text under the tile';
-        var e2 = document.createElement('span');
-        e2.className = 'swatch-a11y-eval';
-        e2.innerHTML = '<span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span>';
-        row2.appendChild(t2);
-        row2.appendChild(e2);
-        box.appendChild(row2);
         return box;
       }
 
