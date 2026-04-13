@@ -1,5 +1,5 @@
 /**
- * Brand swatches page — accessory grid from assets/manifest.json (index.html).
+ * Brand swatches page — accessory grid from assets/manifest.json (brand-swatches.html).
  */
 (function () {
   function basePath() {

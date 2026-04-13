@@ -1,0 +1,48 @@
+/*
+  Color palettes (index.html): Brand / Accessory / Neutrals = six tiles in one horizontal row.
+  Semantic = 4×2 grid (two rows of four). No thumbnails or A11y rating strips on this page only.
+*/
+
+body.page-color-palettes main {
+  max-width: min(100%, 88rem);
+  margin: 0 auto;
+  padding: 1.5rem 0.75rem 2rem;
+}
+
+/* One scrollable row of six (narrow tiles scroll horizontally on small viewports) */
+body.page-color-palettes .palette-six.palette-six--one-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.65rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.35rem;
+}
+
+body.page-color-palettes .palette-six.palette-six--one-row > .palette-six__item {
+  flex: 1 0 11rem;
+  min-width: 10.25rem;
+  max-width: 16rem;
+}
+
+/* Semantic: two rows × four columns (overrides default .semantic-grid breakpoints on this page) */
+body.page-color-palettes .semantic-grid.semantic-grid--palette {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, auto);
+  gap: 0.65rem;
+}
+
+@media (max-width: 720px) {
+  body.page-color-palettes .semantic-grid.semantic-grid--palette {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 380px) {
+  body.page-color-palettes .semantic-grid.semantic-grid--palette {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

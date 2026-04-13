@@ -27,10 +27,10 @@ Current `manifest.json` (checked in to match repo assets):
 ```
 
 - **Brand** — default logo (`artisti-brand-logo.png`), white mark for dark headers (`artisti-logo-white.png`), logo on dark background, full brand-color reference sheet.  
-- **Accessory** (order = story on the page): graded blue wash → dark teal + black type → archive old paper → lilac pink accent → CTA red. Human captions live in **`ACCESSORY_CAPTIONS`** in **`index.html`** (edit there when you add files).
+- **Accessory** (order = story on the page): graded blue wash → dark teal + black type → archive old paper → lilac pink accent → CTA red. Human captions live in **`ACCESSORY_CAPTIONS`** in **`js/pages/palette.js`** (edit there when you add files).
 
-Two **brand chart** colors (**`--color-brand-prime-blue`**, **`--color-brand-prime-navy`**) from the composite chart are listed first in the Brand row in **`index.html`** (hex in `:root`); manifest images append after them.
+Two **brand chart** colors (**`--color-brand-prime-blue`**, **`--color-brand-prime-navy`**) from the composite chart are listed first in the Brand row in **`brand-swatches.html`** (hex in `:root`); manifest images append after them.
 
 Paths are **relative to this folder** (filenames only, no `assets/` prefix).
 
-Then reload **`index.html`** on GitHub Pages.
+Then reload **`brand-swatches.html`** on GitHub Pages (or **`index.html`** for the hex-only color boards).

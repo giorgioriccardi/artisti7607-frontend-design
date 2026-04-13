@@ -1,5 +1,5 @@
 /*
-  Brand swatches page (index.html).
+  Brand swatches page (brand-swatches.html).
   Corners: 0 border-radius (on-brand square geometry).
 */
 
@@ -21,7 +21,13 @@
   /*
     Accessory reference medians (64px Pillow sample — live page uses JS average):
     graded blue #136d9d · dark surface #264f59 · archive paper #e9d4b2 · pink #c29ad5 · red #cc0200
+    (Defaults below match stems in assets/manifest.json; brand-swatches.js may override from image.)
   */
+  --color-artisti-graded-blue-bg: #136d9d;
+  --color-artisti-darker-bg-black-text: #264f59;
+  --color-artisti-archivio-old-paper: #e9d4b2;
+  --color-artisti-pink: #c29ad5;
+  --color-artisti-red-extra-color: #cc0200;
 
   --color-neutral-900: #1e2d3a;
   --color-neutral-700: #3d4f5f;

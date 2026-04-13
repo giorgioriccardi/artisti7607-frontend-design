@@ -4,15 +4,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Artisti 7607 — Frontend Brand 2026</title>
+  <title>Color palettes — Artisti 7607 Frontend Brand 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/core/site.css" />
   <link rel="stylesheet" href="css/pages/palette.css" />
+  <link rel="stylesheet" href="css/pages/color-palettes.css" />
 </head>
 
-<body class="page-palette">
+<body class="page-palette page-color-palettes">
   <a class="skip-link" href="#main">Skip to content</a>
   <nav class="site-nav" aria-label="Design microsite — mockups">
     <div class="site-nav__inner">
@@ -21,7 +22,8 @@
         <span class="site-nav__tag">Mockups</span>
       </div>
       <ul class="site-nav__list">
-        <li><a href="index.html" aria-current="page">Brand swatches</a></li>
+        <li><a href="index.html" aria-current="page">Color palettes</a></li>
+        <li><a href="brand-swatches.html">Brand swatches</a></li>
         <li><a href="headers-mockups.html">Headers mockups</a></li>
         <li><a href="home-page-mockups.html">Home page mockups</a></li>
         <li><a href="docs/rebuild-notes.html">Rebuild notes</a></li>
@@ -32,304 +34,195 @@
     <div class="header-row">
       <img class="header-logo" src="assets/artisti-brand-logo.png" width="120" height="48" alt="Artisti 7607" />
       <div class="header-copy">
-        <h1>Artisti 7607 — Frontend Brand 2026</h1>
-        <p>Brand &amp; accessory colors from <code>assets/</code> + static neutrals / semantic</p>
+        <h1>Artisti 7607 — Color palettes</h1>
+        <p>Compact view of the same tokens as <a href="brand-swatches.html">Brand swatches</a> (no thumbnails or contrast ratings).</p>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <p class="hint" style="margin-bottom:1.25rem"><strong>Muted captions on this page:</strong> The smaller line under each
-      token name uses <code>neutral-500</code> at 12px (~<strong>4.15:1</strong> on white). That is <strong>below WCAG AA</strong>
-      for normal body-sized text—it’s a deliberate demo choice. For production UI, use <code>neutral-700</code> and/or
-      14–16px for anything people need to read comfortably. Each <strong>A11y</strong> strip under a swatch only rates
-      contrast for <em>that color as a background</em> (or role where noted).</p>
     <section aria-labelledby="brand-assets-heading">
       <h2 id="brand-assets-heading">Brand (from assets)</h2>
-      <p class="hint" style="margin-bottom:0.75rem">
-        <strong>Six colors</strong> in a 2×3 grid (three per row). Every cell shows the sampled chip
-        <strong>and</strong> the same brand chart thumbnail (<code>artisti-all-brand-colors.jpg</code>). Last cell:
-        <strong>pure white</strong> (<code>#ffffff</code>).
-      </p>
-      <div id="brand-palette" class="palette-six" aria-label="Brand palette, six colors">
+      <div id="brand-palette" class="palette-six palette-six--one-row" aria-label="Brand palette, six colors in one row">
         <div class="palette-six__item swatch">
           <div class="swatch-bar">
             <div class="swatch-color" style="background: var(--color-brand-prime-blue)"></div>
-            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart"
-              width="84" height="72" loading="lazy" />
           </div>
           <div class="swatch-meta">
             <code>--color-brand-prime-blue · #01a7e1</code>
             <span>Brand chart · prime blue</span>
           </div>
-          <div class="swatch-a11y" title="White on #01a7e1 ≈2.8:1 — fails WCAG AA for normal text. Dark text on this fill passes.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">White text on this blue</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">3/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="palette-six__item swatch">
           <div class="swatch-bar">
             <div class="swatch-color" style="background: var(--color-brand-prime-navy)"></div>
-            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart"
-              width="84" height="72" loading="lazy" />
           </div>
           <div class="swatch-meta">
             <code>--color-brand-prime-navy · #3b4352</code>
             <span>Brand chart · prime navy</span>
           </div>
-          <div class="swatch-a11y" title="White on navy ≈8.5:1 — AA body OK.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">White text on this navy</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="palette-six__item swatch">
           <div class="swatch-bar">
             <div class="swatch-color" style="background: var(--color-neutral-900)"></div>
-            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart"
-              width="84" height="72" loading="lazy" />
           </div>
           <div class="swatch-meta"><code>neutral-900</code><span>Text strong (with brand)</span></div>
-          <div class="swatch-a11y" title="Strong body text on light backgrounds — passes AA.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Using this color for headings &amp; main text</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="palette-six__item swatch">
           <div class="swatch-bar">
             <div class="swatch-color" style="background: var(--color-neutral-700)"></div>
-            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart"
-              width="84" height="72" loading="lazy" />
           </div>
           <div class="swatch-meta"><code>neutral-700</code><span>Text body</span></div>
-          <div class="swatch-a11y" title="Body text on white — ~8.5:1, passes AA.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Using this color for paragraphs &amp; UI labels</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="palette-six__item swatch">
           <div class="swatch-bar">
             <div class="swatch-color"
               style="background: var(--color-neutral-50); box-shadow: inset 0 0 0 1px var(--color-neutral-200)"></div>
-            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart"
-              width="84" height="72" loading="lazy" />
           </div>
           <div class="swatch-meta"><code>neutral-50</code><span>Page / panel bg</span></div>
-          <div class="swatch-a11y" title="Page bg: use neutral-900/700 for body text — passes.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Everyday text on this soft gray background</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="palette-six__item swatch">
           <div class="swatch-bar">
             <div class="swatch-color palette-six__chip--outline" style="background: var(--color-white)"></div>
-            <img class="swatch-ref" src="assets/artisti-all-brand-colors.jpg" alt="Source artwork: brand color chart"
-              width="84" height="72" loading="lazy" />
           </div>
           <div class="swatch-meta"><code>white · #ffffff</code><span>Pure white · Brand section</span></div>
-          <div class="swatch-a11y" title="Dark body text on white — strong contrast.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Dark text on this white surface</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
     <section aria-labelledby="accessory-assets-heading">
       <h2 id="accessory-assets-heading">Accessory (from assets)</h2>
-      <p class="hint" style="margin-bottom:0.75rem">
-        <strong>Six colors</strong> in a 2×3 grid: the first five are sampled from <code>manifest.json</code> accessory
-        images (order preserved); the sixth is <strong>white-shell</strong> (<code>#faf7f2</code>). Thumbnails sit beside
-        each sampled chip.
-      </p>
-      <p id="accessory-empty" class="hint" hidden>
-        No accessory files listed. Add filenames to <code>manifest.json</code> → <code>accessory</code>.
-      </p>
-      <div id="accessory-palette" class="palette-six" aria-live="polite" aria-label="Accessory palette, six colors"></div>
+      <div id="accessory-palette" class="palette-six palette-six--one-row" aria-label="Accessory palette, six colors in one row">
+        <div class="palette-six__item swatch">
+          <div class="swatch-bar">
+            <div class="swatch-color" style="background: var(--color-artisti-graded-blue-bg)"></div>
+          </div>
+          <div class="swatch-meta">
+            <code>--color-artisti-graded-blue-bg · #136d9d</code>
+            <span>Hero / atmosphere · graded blue wash</span>
+          </div>
+        </div>
+        <div class="palette-six__item swatch">
+          <div class="swatch-bar">
+            <div class="swatch-color" style="background: var(--color-artisti-darker-bg-black-text)"></div>
+          </div>
+          <div class="swatch-meta">
+            <code>--color-artisti-darker-bg-black-text · #264f59</code>
+            <span>Dark UI · teal + black type</span>
+          </div>
+        </div>
+        <div class="palette-six__item swatch">
+          <div class="swatch-bar">
+            <div class="swatch-color" style="background: var(--color-artisti-archivio-old-paper)"></div>
+          </div>
+          <div class="swatch-meta">
+            <code>--color-artisti-archivio-old-paper · #e9d4b2</code>
+            <span>Archive · warm old paper</span>
+          </div>
+        </div>
+        <div class="palette-six__item swatch">
+          <div class="swatch-bar">
+            <div class="swatch-color" style="background: var(--color-artisti-pink)"></div>
+          </div>
+          <div class="swatch-meta">
+            <code>--color-artisti-pink · #c29ad5</code>
+            <span>Soft lilac accent</span>
+          </div>
+        </div>
+        <div class="palette-six__item swatch">
+          <div class="swatch-bar">
+            <div class="swatch-color" style="background: var(--color-artisti-red-extra-color)"></div>
+          </div>
+          <div class="swatch-meta">
+            <code>--color-artisti-red-extra-color · #cc0200</code>
+            <span>Urgent / CTA red</span>
+          </div>
+        </div>
+        <div class="palette-six__item swatch">
+          <div class="palette-six__chip palette-six__chip--outline" style="background: var(--color-white-shell)"></div>
+          <div class="swatch-meta"><code>white-shell · #faf7f2</code><span>Warm off-white · Accessory section</span></div>
+        </div>
+      </div>
     </section>
 
     <section aria-labelledby="neutral-heading">
       <h2 id="neutral-heading">Neutrals (static)</h2>
-      <p class="hint" style="margin-bottom:1rem">
-        <strong>Six colors</strong> in a 2×3 grid: the neutral ladder <code>900 → 50</code>; the last cell is
-        <strong>white-mist</strong> (<code>#f5f7fa</code>). Tweak in <code>:root</code> if Blocksy tokens differ.
-      </p>
-      <div id="neutral-palette" class="palette-six" aria-label="Neutral palette, six colors">
+      <div id="neutral-palette" class="palette-six palette-six--one-row" aria-label="Neutral palette, six colors in one row">
         <div class="palette-six__item swatch">
           <div class="palette-six__chip" style="background: var(--color-neutral-900)"></div>
           <div class="swatch-meta"><code>neutral-900</code><span>Text strong</span></div>
-          <div class="swatch-a11y" title="Strong body text on light backgrounds — passes AA.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Using this color for headings &amp; main text</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="palette-six__item swatch">
           <div class="palette-six__chip" style="background: var(--color-neutral-700)"></div>
           <div class="swatch-meta"><code>neutral-700</code><span>Text body</span></div>
-          <div class="swatch-a11y" title="Body text on white — ~8.5:1, passes AA.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Using this color for paragraphs &amp; UI labels</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="palette-six__item swatch">
           <div class="palette-six__chip" style="background: var(--color-neutral-500)"></div>
           <div class="swatch-meta"><code>neutral-500</code><span>Muted</span></div>
-          <div class="swatch-a11y" title="As 12px caption on white ~4.15:1 — fails AA body.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Small gray text on a white background</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="palette-six__item swatch">
           <div class="palette-six__chip" style="background: var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>neutral-200</code><span>Borders</span></div>
-          <div class="swatch-a11y" title="1px border vs white ~1.5:1 — weak non-text contrast.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Seeing borders &amp; dividers on white</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Low</span> · <span class="swatch-a11y-grade">5/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="palette-six__item swatch">
           <div class="palette-six__chip"
             style="background: var(--color-neutral-50); box-shadow: inset 0 0 0 1px var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>neutral-50</code><span>Page bg</span></div>
-          <div class="swatch-a11y" title="Page bg: use neutral-900/700 for body text — passes.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Everyday text on this soft gray background</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="palette-six__item swatch">
           <div class="palette-six__chip palette-six__chip--outline" style="background: var(--color-white-mist)"></div>
           <div class="swatch-meta"><code>white-mist · #f5f7fa</code><span>Cool off-white · Neutrals section</span></div>
-          <div class="swatch-a11y" title="Slightly cool off-white; dark text still reads clearly.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Dark text on this cool off-white</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">9/10</span></span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
     <section aria-labelledby="semantic-heading">
       <h2 id="semantic-heading">Semantic (static)</h2>
-      <p class="hint" style="margin-bottom:1rem"><strong>Layout:</strong> <strong>four columns</strong>, two rows — row 1 =
-        success, warning, error, info; row 2 = matching <code>-soft</code> fills. <strong>A11y</strong> under each tile is
-        only about text contrast on <em>that</em> fill (see note above on muted captions).</p>
-      <div class="semantic-grid">
+      <div class="semantic-grid semantic-grid--palette" aria-label="Semantic palette, four by two">
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-success)"></div>
           <div class="swatch-meta"><code>success</code><span>Vivid blue-teal · #00a589</span></div>
-          <div class="swatch-a11y" title="White on fill ~3.1:1 — fails AA body. Prefer dark text/icons on this fill.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">White text on this color</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-warning)"></div>
           <div class="swatch-meta"><code>warning</code><span>Vivid coral-orange · #ff6b35</span></div>
-          <div class="swatch-a11y" title="White on fill ~2.8:1 — fails AA. Use dark text or stronger fill for small type.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">White text on this color</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">3/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-error)"></div>
           <div class="swatch-meta"><code>error</code><span>Brand red hue, UI vivid</span></div>
-          <div class="swatch-a11y" title="White on fill ~5:1 — passes AA for normal body text.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">White text on this color</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: var(--color-info)"></div>
           <div class="swatch-meta"><code>info</code><span>Lifted cyan-blue · graded blue family</span></div>
-          <div class="swatch-a11y" title="White on fill ~3.7:1 — fails AA body. Prefer dark text on solid info.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">White text on this color</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Below AA</span> · <span class="swatch-a11y-grade">4/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="swatch">
           <div class="swatch-color"
             style="background: var(--color-success-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>success-soft</code><span>Alert / chip fill</span></div>
-          <div class="swatch-a11y" title="neutral-700 on soft fill ~7.4:1 — AA OK for labels.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Dark text on this color</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="swatch">
           <div class="swatch-color"
             style="background: var(--color-warning-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>warning-soft</code><span>Alert / chip fill</span></div>
-          <div class="swatch-a11y" title="neutral-700 on fill ~6:1 — AA OK.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Dark text on this color</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">7/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="swatch">
           <div class="swatch-color"
             style="background: var(--color-error-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>error-soft</code><span>Alert / chip fill</span></div>
-          <div class="swatch-a11y" title="neutral-700 on fill ~7.2:1 — AA OK.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Dark text on this color</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
-            </div>
-          </div>
         </div>
         <div class="swatch">
           <div class="swatch-color"
             style="background: var(--color-info-soft); border-bottom: 1px solid var(--color-neutral-200)"></div>
           <div class="swatch-meta"><code>info-soft</code><span>Alert / chip fill</span></div>
-          <div class="swatch-a11y" title="neutral-700 on fill ~7.3:1 — AA OK.">
-            <div class="swatch-a11y-row">
-              <span class="swatch-a11y-topic">Dark text on this color</span>
-              <span class="swatch-a11y-eval"><span class="swatch-a11y-verdict">Good</span> · <span class="swatch-a11y-grade">8/10</span></span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <strong>giorgioriccardi.github.io/artisti7607-frontend-design/</strong> — palette driven by
-    <code>assets/manifest.json</code>
+    <strong>giorgioriccardi.github.io/artisti7607-frontend-design/</strong> — same tokens as
+    <a href="brand-swatches.html">Brand swatches</a>; accessory hex defaults in <code>css/pages/palette.css</code>
   </footer>
-
-  <script src="js/pages/palette.js" defer></script>
 </body>
 
 </html>
