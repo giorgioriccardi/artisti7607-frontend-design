@@ -12,6 +12,7 @@ Current `manifest.json` (checked in to match repo assets):
 {
   "brand": [
     "artisti-brand-logo.png",
+    "artisti-logo-white.png",
     "artisti-logo-darker-bg.jpg",
     "artisti-all-brand-colors.jpg"
   ],
