@@ -3,10 +3,20 @@
   Square corners (0) — aligned with current brand chrome.
 */
 
+:root {
+  --page-rail: #d5dfe9;
+  --page-strip-a: #e8f0f8;
+  --page-strip-b: #ffffff;
+  --page-strip-edge: #c5d4e2;
+  --page-chapter-fg: rgba(255, 255, 255, 0.92);
+  --page-chapter-muted: rgba(255, 255, 255, 0.78);
+  --page-chapter-link: #9ee5ff;
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
-  background: #fff;
+  background: var(--page-rail);
   color: var(--color-neutral-900);
 }
 
@@ -43,19 +53,32 @@ body {
 .page-home-mockups main {
   max-width: 72rem;
   margin: 0 auto;
-  padding: 0 1.5rem 2.5rem;
+  padding: 0 1.5rem 3.5rem;
 }
 
 .home-intro {
   font-size: 0.9375rem;
   color: var(--color-neutral-700);
   line-height: 1.55;
-  margin-bottom: 2rem;
-  max-width: 48rem;
+  margin: 0 -1.5rem 0;
+  padding: 2rem 1.75rem 2.35rem;
+  max-width: none;
+  background: #f4f8fc;
+  border-bottom: 1px solid var(--page-strip-edge);
 }
 
 .home-idea {
-  margin-bottom: 2.75rem;
+  margin: 0 -1.5rem;
+  padding: 2.75rem 1.75rem;
+  border-bottom: 1px solid var(--page-strip-edge);
+}
+
+.page-home-mockups main > section.home-idea:nth-of-type(2n + 1) {
+  background: var(--page-strip-a);
+}
+
+.page-home-mockups main > section.home-idea:nth-of-type(2n) {
+  background: var(--page-strip-b);
 }
 
 .home-idea > h2 {
@@ -898,25 +921,38 @@ body {
 
 /* —— Ideas 6–8: home + mega menu (open panel wireframes) —— */
 .home-page-divider {
-  margin: 2.5rem 0 1.75rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--color-neutral-200);
+  margin: 0 -1.5rem;
+  padding: 2.35rem 1.75rem 2.5rem;
+  border: none;
+  border-top: 3px solid var(--color-brand-prime-blue);
+  border-bottom: 3px solid var(--color-brand-prime-blue);
+  background: var(--color-brand-prime-navy);
+  color: var(--page-chapter-fg);
 }
 
 .home-page-divider__title {
-  margin: 0 0 0.35rem;
-  font-size: 1rem;
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: var(--color-neutral-700);
+  color: #fff;
   letter-spacing: 0.02em;
 }
 
 .home-page-divider__text {
   margin: 0;
   font-size: 0.875rem;
-  color: var(--color-neutral-500);
-  line-height: 1.5;
+  color: var(--page-chapter-muted);
+  line-height: 1.55;
   max-width: 48rem;
+}
+
+.home-page-divider a {
+  color: var(--page-chapter-link);
+  font-weight: 600;
+}
+
+.home-page-divider a:hover {
+  color: #fff;
 }
 
 .home-frame.home-frame--mega-home {
@@ -1178,10 +1214,11 @@ body {
 
 footer.page-foot {
   text-align: center;
-  padding: 1rem;
+  padding: 1.35rem 1rem 1.5rem;
   font-size: 0.8rem;
   color: var(--color-neutral-500);
-  border-top: 1px solid var(--color-neutral-200);
+  border-top: 1px solid var(--page-strip-edge);
   max-width: 72rem;
-  margin: 0 auto;
+  margin: 1.5rem auto 0;
+  background: var(--page-rail);
 }

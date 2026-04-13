@@ -5,12 +5,20 @@
 */
 :root {
   --radius-future: 2px;
+  /* Long-scroll stripes (section rhythm) */
+  --page-rail: #d5dfe9;
+  --page-strip-a: #e8f0f8;
+  --page-strip-b: #ffffff;
+  --page-strip-edge: #c5d4e2;
+  --page-chapter-fg: rgba(255, 255, 255, 0.92);
+  --page-chapter-muted: rgba(255, 255, 255, 0.78);
+  --page-chapter-link: #9ee5ff;
 }
 
 body {
   margin: 0;
   font-family: var(--font-sans);
-  background: #fff;
+  background: var(--page-rail);
   color: var(--color-neutral-900);
 }
 
@@ -48,7 +56,42 @@ body {
 main {
   max-width: 72rem;
   margin: 0 auto;
-  padding: 0 1.5rem 2.5rem;
+  padding: 0 1.5rem 3.5rem;
+}
+
+/* Striped bands: alternating section BG + vertical rhythm */
+.page-headers-mockups #main > p.intro:first-of-type {
+  margin: 0 -1.5rem;
+  padding: 2rem 1.75rem 2.35rem;
+  background: #f4f8fc;
+  border-bottom: 1px solid var(--page-strip-edge);
+  max-width: none;
+}
+
+.page-headers-mockups #main > section.mock-block {
+  margin: 0 -1.5rem;
+  padding: 2.75rem 1.75rem;
+  border-bottom: 1px solid var(--page-strip-edge);
+}
+
+.page-headers-mockups #main > section.mock-block:nth-of-type(2n + 1) {
+  background: var(--page-strip-a);
+}
+
+.page-headers-mockups #main > section.mock-block:nth-of-type(2n) {
+  background: var(--page-strip-b);
+}
+
+.page-headers-mockups .mock-block {
+  margin-bottom: 0;
+}
+
+.page-headers-mockups #main > p.intro:last-of-type {
+  margin: 0 -1.5rem;
+  padding: 2.25rem 1.75rem 2.75rem;
+  background: var(--page-strip-a);
+  border-top: 1px solid var(--page-strip-edge);
+  max-width: none;
 }
 
 .page-headers-mockups #site-header .header-row,
@@ -57,24 +100,38 @@ main {
 }
 
 .mock-divider {
-  margin: 2.5rem 0 1.75rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--color-neutral-200);
+  margin: 0 -1.5rem;
+  padding: 2.35rem 1.75rem 2.5rem;
+  border: none;
+  border-top: 3px solid var(--color-brand-prime-blue);
+  border-bottom: 3px solid var(--color-brand-prime-blue);
+  background: var(--color-brand-prime-navy);
+  color: var(--page-chapter-fg);
 }
 
 .mock-divider h2 {
-  margin: 0 0 0.35rem;
-  font-size: 1rem;
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: var(--color-neutral-700);
+  color: #fff;
   letter-spacing: 0.02em;
 }
 
 .mock-divider p {
   margin: 0;
   font-size: 0.875rem;
-  color: var(--color-neutral-500);
-  line-height: 1.5;
+  color: var(--page-chapter-muted);
+  line-height: 1.55;
+  max-width: 48rem;
+}
+
+.mock-divider a {
+  color: var(--page-chapter-link);
+  font-weight: 600;
+}
+
+.mock-divider a:hover {
+  color: #fff;
 }
 
 /* Shared alt chrome: buttons */
@@ -723,10 +780,11 @@ main {
 
 footer.page-foot {
   text-align: center;
-  padding: 1rem;
+  padding: 1.35rem 1rem 1.5rem;
   font-size: 0.8rem;
   color: var(--color-neutral-500);
-  border-top: 1px solid var(--color-neutral-200);
+  border-top: 1px solid var(--page-strip-edge);
   max-width: 72rem;
-  margin: 0 auto;
+  margin: 1.5rem auto 0;
+  background: var(--page-rail);
 }

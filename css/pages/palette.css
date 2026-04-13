@@ -321,3 +321,49 @@ footer {
   font-size: 0.8rem;
   color: var(--color-neutral-500);
 }
+
+/* Long-scroll stripes — alternating section bands + rail background */
+body.page-palette {
+  background: #d5dfe9;
+}
+
+.page-palette main {
+  padding-top: 0;
+  padding-bottom: 2.75rem;
+}
+
+.page-palette main > p:first-of-type {
+  margin: 0 -1.5rem;
+  padding: 1.5rem 1.5rem 1.65rem;
+  background: #f4f8fc;
+  border-bottom: 1px solid #c5d4e2;
+}
+
+.page-palette main > section:nth-of-type(2n + 1) {
+  background: #e8f0f8;
+  border-color: #c5d4e2;
+  margin-bottom: 0;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  padding: 1.75rem 1.5rem 2rem;
+  border-left: none;
+  border-right: none;
+  box-shadow: 0 1px 0 rgba(30, 45, 58, 0.04);
+}
+
+.page-palette main > section:nth-of-type(2n) {
+  background: #ffffff;
+  border-color: #d0dbe6;
+  margin-bottom: 0;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  padding: 1.75rem 1.5rem 2rem;
+  border-left: none;
+  border-right: none;
+}
+
+.page-palette footer {
+  margin-top: 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #c5d4e2;
+}
