@@ -26,7 +26,7 @@ Current `manifest.json` (checked in to match repo assets):
 }
 ```
 
-- **Brand** — logo, logo on dark background, full brand-color reference sheet.  
+- **Brand** — default logo (`artisti-brand-logo.png`), white mark for dark headers (`artisti-logo-white.png`), logo on dark background, full brand-color reference sheet.  
 - **Accessory** (order = story on the page): graded blue wash → dark teal + black type → archive old paper → lilac pink accent → CTA red. Human captions live in **`ACCESSORY_CAPTIONS`** in **`index.html`** (edit there when you add files).
 
 Two **brand chart** colors (**`--color-brand-prime-blue`**, **`--color-brand-prime-navy`**) from the composite chart are listed first in the Brand row in **`index.html`** (hex in `:root`); manifest images append after them.
