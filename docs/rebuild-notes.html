@@ -55,7 +55,7 @@
 
     <h2>Implementation stack</h2>
     <p>
-      The WordPress front-end rebuild is based on <strong>Blocksy Pro</strong>: the Blocksy parent theme plus a Blocksy child theme (see the application repo for Composer packages, Companion Pro, and theme paths). Static mockups in this design repo inform layout and chrome; they are not drop-in Blocksy templates, but they should stay compatible with Blocksy’s header/footer and global style capabilities.
+      The WordPress front-end rebuild is based on <strong>Blocksy Pro</strong>: the Blocksy parent theme plus a Blocksy child theme (see the application repo for Composer packages, Companion Pro, and theme paths). Static mockups in this design repo inform layout and header/footer; they are not drop-in Blocksy templates, but they should stay compatible with Blocksy’s header/footer and global style capabilities.
     </p>
 
     <h2>Problem statement</h2>
@@ -63,7 +63,7 @@
       The live site mixes navigation patterns: different headers for contexts, extended menus for some user levels, and behavior that is hard to predict when moving between public pages, logged-in areas, and tools. That increases cognitive load and makes the brand feel fragmented.
     </p>
 
-    <h2>Chrome contract (all roles)</h2>
+    <h2>Header/footer contract (all roles)</h2>
     <p>
       Every front-end view should share the <strong>same layout regions</strong>, whether the user is a guest, a member, or staff. Only <strong>labels and targets</strong> inside those regions change:
     </p>
@@ -79,8 +79,8 @@
 
     <h2>WordPress / implementation hints</h2>
     <ul>
-      <li><strong>Blocksy Pro</strong> — Prefer Blocksy’s header builder, footer builder, and global styles where they match the agreed chrome contract; extend in the child theme when mockups need markup or behavior Blocksy does not expose out of the box.</li>
-      <li>Implement the chrome once in the <strong>child theme</strong> (header/footer partials), not per-page PHP branches that duplicate markup.</li>
+      <li><strong>Blocksy Pro</strong> — Prefer Blocksy’s header builder, footer builder, and global styles where they match the agreed header/footer contract; extend in the child theme when mockups need markup or behavior Blocksy does not expose out of the box.</li>
+      <li>Implement the header/footer once in the <strong>child theme</strong> (header/footer partials), not per-page PHP branches that duplicate markup.</li>
       <li>Drive link sets from <strong>menus or options</strong> registered in WordPress, with validation so editors cannot exceed the agreed counts (or overflow is intentionally folded into the fifth primary or utility session).</li>
       <li>Keep <code>is_home</code>, <code>is_admin</code> (bar on front), and role checks to <strong>swap URLs and labels only</strong>, not to inject a second navigation system.</li>
       <li>Prefer one responsive breakpoint strategy (e.g. hamburger that still exposes the same information architecture) documented here when mobile mockups exist.</li>
@@ -92,7 +92,7 @@
       <li><a href="../headers-mockups.html">Headers mockups</a> — static HTML for header/footer scenarios; styles in <code>css/pages/headers-mockups.css</code>.</li>
       <li><a href="../home-page-mockups.html">Home page mockups</a> — static HTML for landing layouts (including <a href="../home-page-mockups.html#home-mega-menus">home + mega menu</a>); styles in <code>css/pages/home-mockups.css</code>.</li>
       <li><code>docs/rebuild-notes.html</code> (this page) — narrative for the rehaul.</li>
-      <li>Shared UI chrome: <code>css/core/site.css</code> (square corners on nav and contract mockups).</li>
+      <li>Shared header/footer shell: <code>css/core/site.css</code> (square corners on nav and contract mockups).</li>
     </ul>
     <p>
       Application roadmap items remain in the <a href="https://github.com/Artisti7607-dev/WebSite2.0#frontend-design-checklist-todos">WebSite2.0 README checklist</a>.

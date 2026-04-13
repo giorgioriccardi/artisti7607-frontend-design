@@ -9,7 +9,7 @@ Public **design microsite** (GitHub Pages): [giorgioriccardi.github.io/artisti76
 | Home page mockups (8 ideas, incl. 3 with mega menus) | [`home-page-mockups.html`](home-page-mockups.html#home-mega-menus) |
 | Rebuild / IA notes | [`docs/rebuild-notes.html`](docs/rebuild-notes.html) |
 
-**Static assets:** `css/core/site.css` (shared chrome), `css/pages/palette.css`, `headers-mockups.css`, `home-mockups.css` (per page), `js/pages/palette.js` (swatch page behavior).
+**Static assets:** `css/core/site.css` (shared header/footer shell), `css/pages/palette.css`, `headers-mockups.css`, `home-mockups.css` (per page), `js/pages/palette.js` (swatch page behavior).
 
 Legacy URL [`mockups.html`](mockups.html) redirects to headers mockups.
 

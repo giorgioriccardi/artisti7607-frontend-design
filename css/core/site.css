@@ -1,6 +1,6 @@
 /*
   Shared layout for artisti7607-frontend-design (GitHub Pages).
-  Brand: square corners (border-radius: 0) on chrome and contract mockups.
+  Brand: square corners (border-radius: 0) on header/footer and contract mockups.
   Page-specific rules live under css/pages/.
 */
 
@@ -45,7 +45,7 @@
   top: 1rem;
 }
 
-/* Top microsite nav (all static pages) — sticky chrome for mockup navigation */
+/* Top microsite nav (all static pages) — sticky bar for mockup navigation */
 .site-nav {
   position: sticky;
   top: 0;
@@ -135,7 +135,7 @@
   outline-offset: 3px;
 }
 
-/* Headers mockups: same chrome contract, labels swap by scenario (square corners) */
+/* Headers mockups: same header/footer contract, labels swap by scenario (square corners) */
 .mock-block {
   margin-bottom: 2rem;
 }

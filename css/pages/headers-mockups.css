@@ -134,7 +134,7 @@ main {
   color: #fff;
 }
 
-/* Shared alt chrome: buttons */
+/* Shared alternate header/footer: buttons */
 .mock-btn {
   display: inline-flex;
   align-items: center;
@@ -188,7 +188,7 @@ main {
   font-size: 0.75rem;
 }
 
-/* 4 · Air — light public chrome */
+/* 4 · Air — light public header/footer */
 .mock-wrap--air {
   border: none;
   border-radius: var(--radius-future);
