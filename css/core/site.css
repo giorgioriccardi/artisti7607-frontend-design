@@ -31,7 +31,7 @@
 .skip-link {
   position: absolute;
   left: -9999px;
-  z-index: 100;
+  z-index: 110;
   padding: 0.5rem 1rem;
   background: var(--color-brand-prime-navy);
   color: #fff;
@@ -45,11 +45,16 @@
   top: 1rem;
 }
 
-/* Top microsite nav (all static pages) */
+/* Top microsite nav (all static pages) — sticky chrome for mockup navigation */
 .site-nav {
-  background: #fff;
-  border-bottom: 1px solid var(--color-neutral-200);
-  padding: 0.65rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: var(--color-brand-prime-navy);
+  color: #fff;
+  border-bottom: 3px solid var(--color-brand-prime-blue);
+  box-shadow: 0 4px 18px rgba(15, 25, 40, 0.28);
+  padding: 0.55rem 1.25rem;
 }
 
 .site-nav__inner {
@@ -59,43 +64,75 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem 1rem;
+  gap: 0.65rem 1rem;
+}
+
+.site-nav__brand-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.65rem;
+  min-width: 0;
 }
 
 .site-nav__brand {
   font-weight: 700;
-  color: var(--color-neutral-900);
+  color: #fff;
   text-decoration: none;
   font-size: 0.95rem;
 }
 
 .site-nav__brand:hover {
   text-decoration: underline;
+  color: #fff;
+}
+
+.site-nav__tag {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-brand-prime-navy);
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
 }
 
 .site-nav__list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1rem;
+  gap: 0.35rem 0.85rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .site-nav__list a {
-  color: var(--color-neutral-700);
+  color: rgba(255, 255, 255, 0.92);
   text-decoration: none;
   font-size: 0.875rem;
+  padding: 0.2rem 0;
+  border-bottom: 2px solid transparent;
 }
 
 .site-nav__list a:hover {
-  text-decoration: underline;
-  color: var(--color-neutral-900);
+  text-decoration: none;
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.45);
 }
 
 .site-nav__list a[aria-current="page"] {
   font-weight: 700;
-  color: var(--color-brand-prime-blue);
+  color: #fff;
+  border-bottom-color: var(--color-brand-prime-blue);
+}
+
+.site-nav__brand:focus-visible,
+.site-nav__list a:focus-visible {
+  outline: 2px solid var(--color-brand-prime-blue);
+  outline-offset: 3px;
 }
 
 /* Headers mockups: same chrome contract, labels swap by scenario (square corners) */
