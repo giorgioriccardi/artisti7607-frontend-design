@@ -1,0 +1,354 @@
+/*
+  Typography comparison — Lato (PROD) vs suggested alternatives.
+  Loaded by typography-comparison.html only.
+ */
+
+.page-typography main {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 2.5rem;
+}
+
+.typo-intro {
+  max-width: 48rem;
+  margin-bottom: 1.75rem;
+  color: var(--color-neutral-700);
+  line-height: 1.55;
+}
+
+.typo-intro h2 {
+  margin-top: 0;
+  color: var(--color-neutral-900);
+}
+
+.typo-alts {
+  margin: 2rem 0 1.5rem;
+}
+
+.typo-alts h2 {
+  margin-bottom: 0.5rem;
+}
+
+.typo-alts__layout {
+  font-weight: 600;
+  color: var(--color-brand-prime-navy);
+  white-space: nowrap;
+}
+
+@media (max-width: 36rem) {
+  .typo-alts__layout {
+    display: block;
+    margin-top: 0.2rem;
+    white-space: normal;
+  }
+}
+
+/* Eight family cards: two rows × four columns (4 + 4) */
+.typo-alts__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem 1rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 52rem) {
+  .typo-alts__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 26rem) {
+  .typo-alts__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.typo-alts__card {
+  padding: 0.75rem 1rem;
+  background: var(--color-neutral-50);
+  border: 1px solid var(--color-neutral-200);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.typo-alts__card strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--color-neutral-900);
+}
+
+.typo-alts__card--accent {
+  border-left: 3px solid var(--color-brand-prime-blue);
+  padding-left: 0.85rem;
+}
+
+.typo-alts__tag {
+  display: inline-block;
+  margin: 0 0 0.35rem;
+  padding: 0.12rem 0.35rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--color-brand-prime-navy);
+}
+
+.typo-compare {
+  margin-top: 1.5rem;
+}
+
+.typo-compare h2 {
+  margin-bottom: 0.5rem;
+}
+
+.typo-compare__hint {
+  font-size: 0.9rem;
+  color: var(--color-neutral-700);
+  margin-bottom: 1.25rem;
+}
+
+.typo-compare__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem 1.25rem;
+  align-items: stretch;
+}
+
+/* Each specimen: article inherits stack font */
+.typo-compare__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 1rem 1.1rem 1.15rem;
+  margin: 0;
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-200);
+  border-top: 4px solid var(--color-brand-prime-blue);
+  min-width: 0;
+}
+
+.typo-compare__badge {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-brand-prime-navy);
+}
+
+.typo-compare__col--prod .typo-compare__badge {
+  color: var(--color-brand-prime-blue);
+}
+
+.typo-compare__col h1 {
+  margin: 0.15rem 0 0;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--color-neutral-900);
+}
+
+.typo-compare__col h2 {
+  margin: 0.35rem 0 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.28;
+  color: var(--color-neutral-900);
+}
+
+.typo-compare__col h3 {
+  margin: 0.2rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-neutral-700);
+}
+
+.typo-compare__col > p:not(.typo-compare__badge):not(.typo-compare__links):not(.typo-compare__meta) {
+  margin: 0.45rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--color-neutral-900);
+}
+
+.typo-compare__links {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.typo-compare__links a {
+  color: var(--color-brand-prime-blue);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.typo-compare__links a:hover {
+  color: var(--color-brand-prime-navy);
+}
+
+.typo-compare__meta {
+  margin: 0.5rem 0 0;
+  font-size: 0.78rem;
+  color: var(--color-neutral-500);
+  font-variant-numeric: tabular-nums;
+}
+
+/* CTA: text line (small caps style) + button link */
+.typo-compare__cta {
+  margin-top: 0.55rem;
+  padding-top: 0.55rem;
+  border-top: 1px dashed var(--color-neutral-200);
+}
+
+.typo-compare__cta-line {
+  margin: 0 0 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-brand-prime-blue);
+}
+
+.typo-compare__cta-note {
+  margin: 0.25rem 0 0;
+  font-size: 0.75rem;
+  color: var(--color-neutral-500);
+  font-style: italic;
+}
+
+.typo-compare__btn {
+  display: inline-block;
+  padding: 0.45rem 0.95rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background: var(--color-brand-prime-blue);
+  border: 2px solid var(--color-brand-prime-blue);
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.typo-compare__btn:hover {
+  background: var(--color-brand-prime-navy);
+  border-color: var(--color-brand-prime-navy);
+  color: #fff;
+}
+
+.typo-compare__btn:focus-visible {
+  outline: 2px solid var(--color-brand-prime-navy);
+  outline-offset: 2px;
+}
+
+.typo-compare__btn--ghost {
+  color: var(--color-brand-prime-blue);
+  background: transparent;
+  margin-right: 0.5rem;
+}
+
+.typo-compare__btn--ghost:hover {
+  color: #fff;
+  background: var(--color-brand-prime-blue);
+  border-color: var(--color-brand-prime-blue);
+}
+
+.typo-compare__btn--wide {
+  display: block;
+  width: 100%;
+  max-width: 12rem;
+  margin-top: 0.35rem;
+}
+
+.typo-compare__cta--text-then-btn .typo-compare__cta-line {
+  margin-bottom: 0.45rem;
+}
+
+.typo-compare__cta--btn-only .typo-compare__btn {
+  margin-top: 0.15rem;
+}
+
+.typo-compare__cta--btn-then-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.typo-compare__cta--btn-then-text .typo-compare__cta-line {
+  margin: 0;
+}
+
+.typo-compare__cta--inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
+}
+
+.typo-compare__cta--inline .typo-compare__cta-line {
+  margin: 0;
+}
+
+.typo-compare__cta--text-only .typo-compare__cta-line {
+  margin-bottom: 0.15rem;
+}
+
+.typo-compare__cta--btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.typo-compare__cta--stack-btns .typo-compare__cta-line {
+  margin-bottom: 0.35rem;
+}
+
+/* Font stacks — Google Fonts in page <head> */
+.typo-compare__col--lato {
+  font-family: "Lato", system-ui, sans-serif;
+}
+
+.typo-compare__col--ibm-plex {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+}
+
+.typo-compare__col--dm-sans {
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+
+.typo-compare__col--plus-jakarta {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+.typo-compare__col--manrope {
+  font-family: "Manrope", system-ui, sans-serif;
+}
+
+.typo-compare__col--outfit {
+  font-family: "Outfit", system-ui, sans-serif;
+}
+
+.typo-compare__col--merriweather {
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+}
+
+.typo-compare__col--space-grotesk {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+.typo-foot {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-neutral-200);
+  font-size: 0.85rem;
+  color: var(--color-neutral-500);
+  max-width: 48rem;
+}
